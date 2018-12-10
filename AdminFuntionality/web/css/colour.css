@@ -1,0 +1,200 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29-Nov-2018, 14:44:40
+    Author     : evang
+*/
+
+body{
+    background-color: white;
+}
+.main-header{
+    background-color: #15223C;
+    color: white;
+}
+.footer{
+    background-color: #15223C;
+}
+#nav_wrapper a{
+    color: white;
+}
+.gallery-page{
+    background-color: white;
+}
+.menu{
+    background-color: #15223C;
+}
+/*login*/
+.logIn {
+        
+    background: #FFFFFF;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.logIn input {
+    background: #f2f2f2;
+}
+
+.logIn input[type=submit] {
+  background: #444;
+  color: #FFFFFF;
+}
+body{
+    background-color: white;
+}
+.main-header{
+    background-color: #15223C;
+    color: white;
+}
+.footer{
+    background-color: #15223C;
+}
+.gallery-page{
+    background-color: white;
+}
+.logIn{
+    background: #FFFFFF;
+}
+.logIn input{
+    background: #f2f2f2;
+}
+.logIn input[type=submit]{
+   color: #FFFFFF; 
+   background: #444;
+}
+.signUp{
+    background: #FFFFFF;
+}
+.signUp input{
+    background: #f2f2f2;
+}
+.signUp input[type=submit]{
+   color: #FFFFFF; 
+   background: #444;
+}
+.admin{
+    background: #FFFFFF;
+}
+.admin input{
+    background: #f2f2f2;
+}
+.admin input[type=submit]{
+   background: #444;
+   color: #FFFFFF; 
+}
+.menu{
+    background-color: #15223C;
+}
+.grid-container{
+    background-color: white;
+}
+.grid-container > div {
+    background-color: white;
+}
+
+
+
+
+
+
+
+
+
+/*upload and update button (profile)*/
+.profButton input[type=submit]{
+  background: #444;
+  color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Profile Grid*/
+
+  
+.grid-container {
+    background-color:white;
+    
+}
+
+.grid-container > div {
+    background-color: gainsboro;
+}
+
+
+
+
+
+
+
+
+/*Header and nav*/
+
+
+.menu a {
+    color: white;
+}
+
+
+
+
+
+
+
+/*Breadcrumbs*/
+
+
+
+ul.breadcrumb li+li:before {
+    color: black;
+}
+
+ul.breadcrumb li a {
+    color: #0275d8;
+}
+
+ul.breadcrumb li a:hover {
+    color: #01447e;
+}
+
+
+
+
+
+
+
+
+/*Tab*/
+
+.tab button {
+    background-color: inherit;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+.tab button.active {
+    background-color: #ccc;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,85 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29-Nov-2018, 14:44:32
+    Author     : evang
+*/
+.logIn {
+    font-family: sans-serif;
+    text-align: center;
+}
+.logIn input {
+    font-family: sans-serif;
+    font-size: 14px;
+}
+.logIn input[type=submit] {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.logIn {
+    font-family: sans-serif;
+    text-align: center;
+}
+.logIn input {
+    font-family: sans-serif;
+    font-size: 14px;
+}
+.logIn input[type=submit] {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.signUp {
+    font-family: sans-serif;
+    text-align: center;
+}
+.signUp input {
+    font-family: sans-serif;
+    font-size: 14px;
+}
+.signUp input[type=submit] {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.admin{
+   font-family: sans-serif;
+    text-align: center; 
+}
+.admin input {
+    font-family: sans-serif;
+    font-size: 14px;
+}
+.logIn h6{
+    font-size: 15px;
+}
+.signUp h6{
+    font-size: 15px;
+}
+h6{
+   font-size: 20px; 
+}
+.nav{
+   text-align: right;
+   line-height: 30px;
+}
+.menu{
+    font-size: 20px
+}
+.menu a{
+    text-decoration: none;
+}
+.nav label{
+    font-size: 26px;
+}
+.grid-container > div {
+  text-align: center;
+  font-size: 30px; 
+}
+/*
+@font-face{
+    font-family: open sans;
+    src: url(fonts/OpenSans-Regular);
+}*/
+
