@@ -1,19 +1,12 @@
 <%-- 
-    Document   : DetailedNoticeView
-    Created on : 04-Dec-2017, 10:01:52
-    Author     : Elizabeth.Bourke
---%>
-
-<%-- 
-    Document   : register
-    Created on : 07-Dec-2016, 21:39:41
-    Author     : AMarie
+    Document   : ManageUsers
+    Created on : 11-Dec-2018, 12:19:07
+    Author     : K00215515
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="model.ShowsEG"%>
-
+<%@page import="model.AdminEG"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +14,7 @@
         <link href="${pageContext.request.contextPath}/css/layout.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/colour.css" rel="stylesheet" type="text/css">
-        <title>Detailed Show View</title>
+        <title>Manage Users</title>
     </head>
     <body>
         <header class="main-header">
@@ -41,29 +34,23 @@
                     <a href="Logout.jsp">Logout</a> -->
                 </div>
             </div>
-        </header> 
-            <div class="logIn">
-                <form action="ShowController" method="get" class="register-form" name="showsn">
-                    
-                <br>
-                <label>Show Name</label>
-                <input type="text" name="show_title" id="show_title""/>
-                <br>
-                <label>Show Description</label>
-                <input type="text" name="show_description" id="show_description""/>
-                <br>
-                <label>Show Image</label>
-                <input type="text" name="show_image" id="show_image""/>
-                <br>
-
-            </div>
+        </header>
+        <div class="logIn">
+            <h2>Manage Users</h2>
+            <form action="AdminControllerEG" method="post" class="register-form" name="users">
+                <table id="m">
+                    <tr>             
+                        <td>username</td>
+                    </tr>
+                    <c:forEach var="users" items="${allusers}">                  
+                        <tr>                                            
+                            <td ><a href="AdminControllerEG?menu=getUserView&user_id=${admin.userid}">${admin.username}</a> </td>
+                            <td ><a href="AdminControllerEG?menu=deleteUsers&user_id=${admin.userid}">Delete</a> </td>
+                            <td ><a href="AdminControllerEG?menu=updateUsers&user_id=${admin.userid}">Update</a> </td>
+                         </tr>
+                    </c:forEach>
+<!--                <input type="submit" name="menu" value="save" />-->
+            </form>
         </div>
-        <script
-            src="https://code.jquery.com/jquery-1.12.4.js"
-            integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
-        crossorigin="anonymous"></script>
-        <script src="js/jquery.validate.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/form-validation.js"></script>
     </body>
 </html>
-

@@ -15,12 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.AdminEG;
-
 import model.CourseEG;
 
 /**
  *
- * @author K00215515
+ * @author K00215515 Evan Grimes 10/12/2018
  */
 @WebServlet(name = "CourseControllerEG", urlPatterns = {"/CourseControllerEG"})
 public class CourseControllerEG extends HttpServlet {
@@ -50,34 +49,28 @@ public class CourseControllerEG extends HttpServlet {
 //            out.println("</html>");
 
         HttpSession session = request.getSession();
-        CourseEG course = (CourseEG) session.getAttribute("admin");
+        AdminEG user = (AdminEG) session.getAttribute("user");
+        if (user == null) {
+            user = new AdminEG();
+            session.setAttribute("user", user);
+        }
+        CourseEG course = (CourseEG) session.getAttribute("course");
         if (course == null) {
            course = new CourseEG();
-           session.setAttribute("admin", course);
+           session.setAttribute("course", course);
         }
 
         String menu = request.getParameter("menu");
-            switch(menu){
+        switch(menu){
             case "Add Course":
-                gotoPage("", request, response);
+                gotoPage("/AddCourse.jsp", request, response);
                 break;
-            case "Save":
+            case "save":
                 ProcessCourseSave(request, session);
                 gotoPage("/Admin.jsp", request, response);
                 break;
         
         }
-    }
-    private void ProcessCourseSave(HttpServletRequest request, HttpSession session) {
-        String course_name = request.getParameter("course_name");
-        String course_Description = request.getParameter("course_description");
-        AdminEG user = (AdminEG) session.getAttribute("user");
-        System.out.println("User id " + user.getUserid());
-        CourseEG course = new CourseEG(course_name, course_Description, user.getUserid());
-        course.saveToDatabase();
-        
-        session.setAttribute("course", course);
-        System.out.println("course_id" + course.getCourse_id());
     }
     private void gotoPage(String url,
             HttpServletRequest request,
@@ -87,6 +80,18 @@ public class CourseControllerEG extends HttpServlet {
                 = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     } 
+    private void ProcessCourseSave(HttpServletRequest request, HttpSession session) {
+        String course_name = request.getParameter("course_name");
+        String course_description = request.getParameter("course_description");
+        AdminEG user = (AdminEG) session.getAttribute("user");
+        System.out.println("user_id " + user.getUserid());
+        CourseEG course = new CourseEG(course_name, course_description, user.getUserid());
+        course = course.saveToDatabase();
+        
+        session.setAttribute("course", course);
+        System.out.println("course_id" + course.getCourse_id());
+    }
+    
     
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

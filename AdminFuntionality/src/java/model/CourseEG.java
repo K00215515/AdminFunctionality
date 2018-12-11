@@ -17,27 +17,27 @@ import java.sql.SQLException;
 public class CourseEG {
     private int course_id;
     private String course_name;
-    private String course_Description;
+    private String course_description;
     private int userid;
     
     public CourseEG(){
     }
     
-    public CourseEG(String course_name, String course_Description){
+    public CourseEG(String course_name, String course_description){
         this.course_name = course_name;
-        this.course_Description = course_Description;
+        this.course_description = course_description;
     }
     
-    public CourseEG(int course_id, String course_name, String course_Description){
+    public CourseEG(int course_id, String course_name, String course_description){
         this.course_id = course_id;
         this.course_name = course_name;
-        this.course_Description = course_Description;
+        this.course_description = course_description;
     }
 
-    public CourseEG(String course_name, String course_Description, int userid) {
+    public CourseEG(String course_name, String course_description, int userid) {
         
         this.course_name = course_name;
-        this.course_Description = course_Description;
+        this.course_description = course_description;
         this.userid = userid;
     }
 
@@ -57,12 +57,18 @@ public class CourseEG {
         this.course_name = course_name;
     }
 
-    public String getCourse_Description() {
-        return course_Description;
+    public String getCourse_description() {
+        return course_description;
     }
 
-    public void setCourse_Description(String course_Description) {
-        this.course_Description = course_Description;
+    public void setCourse_description(String course_description) {
+        this.course_description = course_description;
+    }
+    private int getUserid() {
+        return userid;
+    }
+    private void setUserid(int userid) {
+        this.userid = userid;
     }
 
     public CourseEG saveToDatabase() {
@@ -74,8 +80,8 @@ public class CourseEG {
             PreparedStatement ps = connection.prepareStatement(sql);
             PreparedStatement ps2 = connection.prepareStatement(query);
             ps.setString(1, this.getCourse_name());
-            ps.setString(2, this.getCourse_Description());
-            ps.setInt(4, this.getUserid());
+            ps.setString(2, this.getCourse_description());
+            ps.setInt(3, this.getUserid());
 
             ps.executeUpdate();
             ResultSet rs = ps2.executeQuery();
@@ -88,12 +94,5 @@ public class CourseEG {
             System.out.println(ex);
         }
         return this;
-    }
-
-    private int getUserid() {
-        return userid;
-    }
-    
-    
-    
+    }   
 }

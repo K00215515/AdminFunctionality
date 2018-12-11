@@ -3,19 +3,29 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import model.ShowsEG;
+import model.AdminEG;
 
-public final class AddShow_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class ManageUsers_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_forEach_var_items.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -60,10 +70,10 @@ public final class AddShow_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/css/colour.css\" rel=\"stylesheet\" type=\"text/css\">\n");
-      out.write("        <title>Add Show</title>\n");
+      out.write("        <title>Manage Users</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("    <header class=\"main-header\">\n");
+      out.write("        <header class=\"main-header\">\n");
       out.write("        <div class=\"Logo\">\n");
       out.write("            <img src=\"images/litGalleryLogo.png\" alt=\"Logo\"/ height=\"800px\" width=\"300px\">\n");
       out.write("                </div>\n");
@@ -71,7 +81,6 @@ public final class AddShow_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <label for=\"toggle\">&#9776;</label>\n");
       out.write("                    <input type=\"checkbox\" id=\"toggle\"/>\n");
       out.write("                <div class=\"menu\">\n");
-      out.write("\n");
       out.write("                    <a href=\"Home.jsp\">Home</a>\n");
       out.write("<!--                        <a href=\"Gallery.html\">Gallery</a>-->\n");
       out.write("                    <a href=\"Shows.jsp\">Shows</a>\n");
@@ -81,18 +90,19 @@ public final class AddShow_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <a href=\"Logout.jsp\">Logout</a> -->\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
-      out.write("        </header> \n");
+      out.write("        </header>\n");
       out.write("        <div class=\"logIn\">\n");
-      out.write("            <form action=\"ShowController\" method=\"post\" class=\"register-form\" name=\"shows\">\n");
-      out.write("                <label>Show Name</label>\n");
-      out.write("                <input type=\"text\" name=\"show_title\" id=\"show_title\"/>\n");
-      out.write("                <br>\n");
-      out.write("                <label>Show Description</label>\n");
-      out.write("                <input type=\"text\" name=\"show_description\" id=\"show_description\"/>\n");
-      out.write("                <br>\n");
-      out.write("                <label>Show Image</label>\n");
-      out.write("                <input type=\"text\" name=\"show_image\" id=\"show_image\"/><br>\n");
-      out.write("                <input type=\"submit\" name=\"menu\" value=\"save\" />\n");
+      out.write("            <h2>Manage Users</h2>\n");
+      out.write("            <form action=\"AdminControllerEG\" method=\"post\" class=\"register-form\" name=\"users\">\n");
+      out.write("                <table id=\"m\">\n");
+      out.write("                    <tr>             \n");
+      out.write("                        <td>username</td>\n");
+      out.write("                    </tr>\n");
+      out.write("                    ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
+      out.write("\n");
+      out.write("<!--                <input type=\"submit\" name=\"menu\" value=\"save\" />-->\n");
       out.write("            </form>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");
@@ -108,5 +118,57 @@ public final class AddShow_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent(null);
+    _jspx_th_c_forEach_0.setVar("users");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${allusers}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("                  \n");
+          out.write("                        <tr>                                            \n");
+          out.write("                            \n");
+          out.write("\n");
+          out.write("                            <td ><a href=\"AdminControllerEG?menu=getUserView&user_id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.userid}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write('"');
+          out.write('>');
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.username}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</a> </td>\n");
+          out.write("                            <td ><a href=\"AdminControllerEG?menu=deleteUsers&user_id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.userid}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">Delete</a> </td>\n");
+          out.write("                            <td ><a href=\"AdminControllerEG?menu=updateUsers&user_id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${admin.userid}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">Update</a> </td>\n");
+          out.write("                         </tr>\n");
+          out.write("                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
   }
 }

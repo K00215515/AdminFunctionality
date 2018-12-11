@@ -15,38 +15,50 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="${pageContext.request.contextPath}/css/layout.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font.css" rel="stylesheet" type="text/css">
-        <link href="${pageContext.request.contextPath}/css/colour.css" rel="stylesheet" type="text/css">
-        
+        <link href="${pageContext.request.contextPath}/css/colour.css" rel="stylesheet" type="text/css"> 
         <title>Sign Up</title>
     </head>
     <body>
-        <div class="logIn">
+        <header class="main-header">
+                <div class="Logo">
+                <img src="images/litGalleryLogo.png" alt="Logo"/ height="800px" width="300px">
+                </div>
+                <div class="nav">
+                    <label for="toggle">&#9776;</label>
+                    <input type="checkbox" id="toggle"/>
+                    <div class="menu">
+
+                        <a href="Home.jsp">Home</a>
+<!--                        <a href="Gallery.jsp">Gallery</a>-->
+                        <a href="Shows.jsp">Shows</a>
+<!--                        <a href="Profile.jsp">Profile</a> -->
+                        <a href="SignUp.jsp">SignIn</a> 
+<!--                        <a href="Logout.jsp">Logout</a> -->
+                    </div>
+                </div>
+        </header> 
             
-            <div class="form">
-                <form action="AdminControllerEG" method="post" class="register-form" name="registration">
+        <div class="logIn">
+            <form action="AdminControllerEG" method="post" class="register-form" name="registration">
+                <h2>Sign Up</h2><br>
+                <label>User name</label>
+                <input type="text" name="username" id="username" value="${users.username}"/>
+                <br>
+                <label>Password</label>
+                <input type="password" name="password" id="password" value="${users.password}"/>
+                <br>
+                <label>Email</label>
+                <input type="email" name="email" id="email" value="${users.email}"/>
+                <br>
+                <label>First Name</label>
+                <input type="text" name="F_name" id="F_name" value="${users.F_name}"/>
+                <br>
+                <label>Last Name</label>
+                    <input type="text" name="L_name" id="L_name" value="${users.L_name}"/>
+                <br>
+                <input type="submit" name="menu" value="SignUp" />
 
-
-                    <br>
-                    <label>User name</label>
-                    <input type="text" name="username" id="username"/>
-                    <br>
-                    <label>Password</label>
-                    <input type="password" name="password" id="password"/>
-                    <br>
-                    <label>Email</label>
-                    <input type="email" name="email" id="email"/>
-                    <br>
-                    
-                    <label>First Name</label>
-                    <input type="text" name="F_name" id="F_name"/>
-                    <br>
-                    <label>Last Name</label>
-                        <input type="text" name="L_name" id="L_name"/>
-                    <br>
-                    <input type="submit" name="menu" value="SignUp" />
-
-                </form>
-            </div>
+            </form>
         </div>
         <script
             src="https://code.jquery.com/jquery-1.12.4.js"

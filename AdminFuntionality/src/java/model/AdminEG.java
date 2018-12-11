@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -131,7 +132,7 @@ public class AdminEG implements Serializable{
     public AdminEG saveToDatabase() {
         Connection connection = DatabaseUtilityClass.getConnection();
          
-        String sql = "INSERT INTO users (username,password, email, F_name, L_name, user_id) VALUES (?,?,?,?,?,?);";
+        String sql = "INSERT INTO users (username,password, email, F_name, L_name) VALUES (?,?,?,?,?);";
         String query = "SELECT LAST_INSERT_ID()";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -141,7 +142,7 @@ public class AdminEG implements Serializable{
             ps.setString(3, this.getEmail());
             ps.setString(4, this.getF_name());
             ps.setString(5, this.getL_name());
-            ps.setInt(4, this.getUserid());
+//            ps.setInt(4, this.getUserid());
             
 
             ps.executeUpdate();
@@ -155,5 +156,68 @@ public class AdminEG implements Serializable{
             System.out.println(ex);
         }
         return this;
+    }
+    public AdminEG getUserDetails(int userId) {
+         AdminEG u = null; 
+        Connection connection = DatabaseUtilityClass.getConnection();
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
+        
+        String query = "SELECT * FROM User WHERE userid = ?;";
+        
+        try{
+            ps = connection.prepareStatement(query);
+            ps.setString(1, this.getUsername());
+            ps.setString(2, this.getPassword());
+            ps.setString(3, this.getEmail());
+             ps.setString(4, this.getF_name());
+            ps.setString(5, this.getL_name());
+            ps.setInt(6, this.getUserid());
+            
+            
+            while (resultSet.next()) {
+                this.userid = resultSet.getInt("user_id");
+                this.username = resultSet.getString("username");
+                this.password = resultSet.getString("password");
+                this.email = resultSet.getString("email");
+                this.F_name = resultSet.getString("F_name");
+                this.L_name = resultSet.getString("L_name");   
+            } 
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
+    public ArrayList<AdminEG> getAllUsers() {
+
+        ArrayList allusers = new ArrayList<>();
+
+        Connection connection = DatabaseUtilityClass.getConnection();
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
+
+        String query = "Select * from users";
+
+        try {
+
+            ps = connection.prepareStatement(query);
+            resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                AdminEG u = new AdminEG();
+                u.setUserid(resultSet.getInt("user_id"));
+                u.setUsername(resultSet.getString("username"));
+                u.setPassword(resultSet.getString("password"));
+                u.setEmail(resultSet.getString("email"));
+                u.setF_name(resultSet.getString("F_name"));
+                u.setL_name(resultSet.getString("L_name"));
+                u.setUserid(resultSet.getInt("user_id"));
+                allusers.add(u);
+            }
+            connection.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return null;
+        }
+        return allusers;
     }
 }

@@ -1,7 +1,7 @@
 <%-- 
     Document   : AddShow
     Created on : 10-Dec-2018, 16:03:05
-    Author     : K00215515
+    Author     : K00215515 Evan Grimes
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,20 +11,42 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link href="${pageContext.request.contextPath}/css/layout.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/css/font.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/css/colour.css" rel="stylesheet" type="text/css">
+        <title>Add Show</title>
     </head>
-    <div class="logIn">
-        <form action="ShowController" method="post" class="register-form" name="registration">
-
-            <label>Show Name</label>
-            <input type="text" name="show_title" id="show_title"/>
-            <br>
-            <label>Show Description</label>
-            <input type="text" name="show_Description" id="show_description"/>
-            <br>
-            <label>Show Image</label>
-            <input type="text" name="show_image" id="show_image"/><br>
-            <input type="submit" name="menu" value="Save" />
-         </form>
-    </div>
+    <body>
+    <header class="main-header">
+        <div class="Logo">
+            <img src="images/litGalleryLogo.png" alt="Logo"/ height="800px" width="300px">
+                </div>
+                <div class="nav">
+                    <label for="toggle">&#9776;</label>
+                    <input type="checkbox" id="toggle"/>
+                <div class="menu">
+                    <a href="Home.jsp">Home</a>
+<!--                        <a href="Gallery.html">Gallery</a>-->
+                    <a href="Shows.jsp">Shows</a>
+                    <a href="Admin.jsp">Admin</a>
+<!--                        <a href="Profile.html">Profile</a> -->
+<!--                    <a href="SignUp.jsp">SignIn</a> 
+                    <a href="Logout.jsp">Logout</a> -->
+                </div>
+            </div>
+        </header> 
+        <div class="logIn">
+            <form action="ShowController" method="post" class="register-form" name="shows">
+                <label>Show Name</label>
+                <input type="text" name="show_title" id="show_title"/>
+                <br>
+                <label>Show Description</label>
+                <input type="text" name="show_description" id="show_description"/>
+                <br>
+                <label>Show Image</label>
+                <input type="text" name="show_image" id="show_image"/><br>
+                <input type="submit" name="menu" value="save" />
+            </form>
+        </div>
+    </body>
 </html>

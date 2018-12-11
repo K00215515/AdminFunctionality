@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="model.ShowsEG"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -34,7 +36,7 @@
                     </div>
                 </div>
             </header> 
-                <div class="grid-container">
+<!--                <div class="grid-container">
                 <form>
                     Title:<br>
                     <input type="text" name="title"><br>
@@ -48,7 +50,7 @@
                     <input type="text" name="course"><br>
                     <input type="Submit" value="Publish">
                     <input type="reset" value="Cancel">
-                </form>
+                </form>-->
 <!--                <div class="item2">
                     <form>
                         <label for="img">Images:</label>
@@ -56,7 +58,7 @@
                         <label for="video">Video:</label>
                         <input type="checkbox" name="video" id="video">
                     </form>-->
-                </div>
+<!--                </div>
                 <div class="item3">  
 
                     <div class="gallery-page"> 
@@ -70,7 +72,8 @@
                         <img src="images/Sample4.PNG" alt="Sample4" />
 
                     </div>
-                </div> 
+                </div> -->
+                </div>
             </div>
         </div>
         <div class="footer">

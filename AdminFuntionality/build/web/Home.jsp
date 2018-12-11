@@ -19,7 +19,7 @@
 </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--        <link href="fonts/OpenSans-Regular.ttf" rel="fonts" type="text/css">-->
-        <title>Log In</title> 
+        <title>Home</title> 
     </head>
     <body>
         <div class="logIn-page">
@@ -36,7 +36,8 @@
 <!--                        <a href="Gallery.html">Gallery</a>-->
                         <a href="Shows.jsp">Shows</a>
 <!--                        <a href="Profile.html">Profile</a> -->
-                        <a href="SignUp.jsp">SignIn</a> 
+                        <a href="SignUp.jsp">Sign Up</a> 
+                        <a href="LogIn.jsp">Sign In</a> 
                         <a href="Logout.jsp">Logout</a> 
                     </div>
                 </div>

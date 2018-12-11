@@ -58,7 +58,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</style>\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
       out.write("<!--        <link href=\"fonts/OpenSans-Regular.ttf\" rel=\"fonts\" type=\"text/css\">-->\n");
-      out.write("        <title>Log In</title> \n");
+      out.write("        <title>Home</title> \n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <div class=\"logIn-page\">\n");
@@ -75,7 +75,8 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!--                        <a href=\"Gallery.html\">Gallery</a>-->\n");
       out.write("                        <a href=\"Shows.jsp\">Shows</a>\n");
       out.write("<!--                        <a href=\"Profile.html\">Profile</a> -->\n");
-      out.write("                        <a href=\"SignUp.jsp\">SignIn</a> \n");
+      out.write("                        <a href=\"SignUp.jsp\">Sign Up</a> \n");
+      out.write("                        <a href=\"LogIn.jsp\">Sign In</a> \n");
       out.write("                        <a href=\"Logout.jsp\">Logout</a> \n");
       out.write("                    </div>\n");
       out.write("                </div>\n");

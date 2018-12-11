@@ -3,9 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import model.AdminEG;
+import model.CourseEG;
 
-public final class Admin_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class AddCourse_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -46,7 +46,6 @@ public final class Admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -60,43 +59,20 @@ public final class Admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/css/colour.css\" rel=\"stylesheet\" type=\"text/css\">\n");
-      out.write("        <title>Admin</title>\n");
+      out.write("        <title>Add Course</title>\n");
       out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("    <header class=\"main-header\">\n");
-      out.write("        <div class=\"Logo\">\n");
-      out.write("            <img src=\"images/litGalleryLogo.png\" alt=\"Logo\"/ height=\"800px\" width=\"300px\">\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"nav\">\n");
-      out.write("                    <label for=\"toggle\">&#9776;</label>\n");
-      out.write("                    <input type=\"checkbox\" id=\"toggle\"/>\n");
-      out.write("                <div class=\"menu\">\n");
-      out.write("                    <a href=\"Home.jsp\">Home</a>\n");
-      out.write("<!--                        <a href=\"Gallery.html\">Gallery</a>-->\n");
-      out.write("                    <a href=\"Shows.jsp\">Shows</a>\n");
-      out.write("                    <a href=\"Admin.jsp\">Admin</a>\n");
-      out.write("<!--                        <a href=\"Profile.html\">Profile</a> -->\n");
-      out.write("<!--                    <a href=\"SignUp.jsp\">SignIn</a> \n");
-      out.write("-->                    <a href=\"Logout.jsp\">Logout</a> \n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
-      out.write("        </header> \n");
-      out.write("        <div class=\"logIn\">\n");
-      out.write("                <form action=\"AdminControllerEG\" class=\"manageusers-page\">   ");
-      out.write("                                 \n");
-      out.write("                    <input type=\"submit\" name=\"menu\" value=\"Manage Users\" />\n");
-      out.write("                    <input type=\"submit\" name=\"menu\" value=\"logout\" />\n");
-      out.write("                </form>\n");
-      out.write("                <form action=\"CourseControllerEG\" class=\"course-page\">\n");
-      out.write("                   <input type=\"submit\" name=\"menu\" value=\"Add Course\" />  \n");
-      out.write("                </form>   \n");
-      out.write("                <form action=\"ShowController\" class=\"shows-page\">\n");
-      out.write("                   <input type=\"submit\" name=\"menu\" value=\"Add Show\" />  \n");
-      out.write("                </form>\n");
-      out.write("            </form>\n");
-      out.write("        </div>\n");
-      out.write("    </body>\n");
-      out.write("</html>");
+      out.write("    <div class=\"logIn\">\n");
+      out.write("        <form action=\"CourseControllerEG\" method=\"post\" class=\"register-form\" name=\"registration\">\n");
+      out.write("\n");
+      out.write("            <label>Course Name</label>\n");
+      out.write("            <input type=\"text\" name=\"course_name\" id=\"course_name\"/>\n");
+      out.write("            <br>\n");
+      out.write("            <label>Course Description</label>\n");
+      out.write("            <input type=\"text\" name=\"course_description\" id=\"course_description\"/>\n");
+      out.write("            <input type=\"submit\" name=\"menu\" value=\"save\" />\n");
+      out.write("         </form>\n");
+      out.write("    </div>\n");
+      out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
