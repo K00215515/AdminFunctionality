@@ -21,7 +21,7 @@
     <body>
         <header class="main-header">
                 <div class="Logo">
-                <img src="images/litGalleryLogo.png" alt="Logo"/ height="800px" width="300px">
+                <img src="images/litGalleryLogo.png" alt="Logo"height="800px" width="300px"/>
                 </div>
                 <div class="nav">
                     <label for="toggle">&#9776;</label>
@@ -39,7 +39,7 @@
         </header> 
             
         <div class="logIn">
-            <form action="AdminControllerEG" method="post" class="register-form" name="registration">
+            <form action="UserControllerEG" method="post" class="register-form" name="registration">
                 <h2>Sign Up</h2><br>
                 <label>User name</label>
                 <input type="text" name="username" id="username" value="${users.username}"/>

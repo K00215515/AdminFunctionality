@@ -36,45 +36,21 @@
                     </div>
                 </div>
             </header> 
-<!--                <div class="grid-container">
-                <form>
-                    Title:<br>
-                    <input type="text" name="title"><br>
-                    Description:<br>
-                    <input type="text" name="description"><br>
-                    Start Date:<br>
-                    <input type="date" name="start date"><br>
-                    End Date:<br>
-                    <input type="date" name="end date"><br>
-                    Course:<br>
-                    <input type="text" name="course"><br>
-                    <input type="Submit" value="Publish">
-                    <input type="reset" value="Cancel">
-                </form>-->
-<!--                <div class="item2">
-                    <form>
-                        <label for="img">Images:</label>
-                        <input type="checkbox" name="img" id="img"><br>
-                        <label for="video">Video:</label>
-                        <input type="checkbox" name="video" id="video">
-                    </form>-->
-<!--                </div>
-                <div class="item3">  
-
-                    <div class="gallery-page"> 
-
-                        <img src="images/Sample1.png" alt="Sample1" />
-
-                        <img src="images/Sample2.jpg" alt="Sample2"/>
-
-                        <img src="images/Sample3.jpg" alt="Sample3" />
-
-                        <img src="images/Sample4.PNG" alt="Sample4" />
-
-                    </div>
-                </div> -->
-                </div>
-            </div>
+                    <table id="m">
+                    <tr>             
+                        <td>image</td>
+                        <td>show title</td>
+                    </tr>
+                    <c:forEach var="shows" items="${allshows}">                  
+                        <tr>                                            
+                            
+                            <td><img src="${pageContext.request.contextPath}/images/${shows.show_image}" alt="shows" width="80" height="80"></td>
+                            <td><a href="ShowControllerEG?menu=getShowView&noticeId=${shows.show_id}">${shows.show_title}</a> </td>
+                            <td><a href="ShowControllerEG?menu=deleteShow&noticeId=${shows.show_id}">Delete</a> </td>
+                            <td><a href="ShowControllerEG?menu=updateShow&noticeId=${shows.show_id}">Update</a> </td>
+                         </tr>
+                    </c:forEach>
+                    </table>
         </div>
         <div class="footer">
             <footer></footer>

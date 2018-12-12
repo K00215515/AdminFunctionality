@@ -22,8 +22,8 @@ import model.ShowsEG;
  *
  * @author K00215515 Evan Grimes 10/12/2018
  */
-@WebServlet(name = "ShowController", urlPatterns = {"/ShowController"})
-public class ShowController extends HttpServlet {
+@WebServlet(name = "ShowControllerEG", urlPatterns = {"/ShowControllerEG"})
+public class ShowControllerEG extends HttpServlet {
 
 //    /**
 //     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,17 +38,22 @@ public class ShowController extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-//        AdminEG admin = (AdminEG) session.getAttribute("admin");
-//        if (admin == null) {
-//            admin = new AdminEG();
-//            session.setAttribute("admin", admin);
-//        }
+        AdminEG admin = (AdminEG) session.getAttribute("admin");
+        if (admin == null) {
+            admin = new AdminEG();
+            session.setAttribute("admin", admin);
+        }
+        String menu = "home";
         ShowsEG shows = (ShowsEG) session.getAttribute("shows");
         if (shows == null) {
             shows = new ShowsEG();
             session.setAttribute("shows", shows);
         }
-        String menu = request.getParameter("menu");
+        menu = request.getParameter("menu");
+        if (menu == null) {
+            menu = "home";
+        }
+        
         switch(menu){
             case "Add Show":
                 gotoPage("/AddShow.jsp", request, response); 
@@ -58,43 +63,42 @@ public class ShowController extends HttpServlet {
                 ProcessSave(request, session);
                 gotoPage("/Admin.jsp", request, response); 
                 break;
-//            case "home":
-//                ShowsEG show = new ShowsEG();
-//                ArrayList<ShowsEG> allshows = new ArrayList<>();
-//                allshows = show.getAllShows();
-//                session.setAttribute("allshows", allshows);
-//                gotoPage("/Shows.jsp", request, response);
-//                break;
-//            case "getShowView":
-//                //get notice id
-//                String showid = request.getParameter("show_id");
-//                int show_id = Integer.parseInt(showid);
-//
-//                //call to notice model to get notice details
-//                ShowsEG n = new ShowsEG();
-//                n = n.getShowDetails(show_id);
-//                
-//                if (n != null) {
-//                    
-//                    session.setAttribute("notice", n);
-//                    //get user details for notcie
-//                    AdminEG u = new AdminEG();
-//                    System.out.println("get user details " + n.getUserid());
-//                    u = u.getUserDetails(n.getUserid());
-//                    if(u!=null) {
-//                        System.out.println("notice user" + u.getUsername());
-//                        session.setAttribute("noticeUser", u);
-//                    }
-//                    else{
-//                        System.out.println("user details null");
-//                    }
-//                    
-//                }
-//                gotoPage("/DetailedShowView.jsp", request, response);
-//                break;
-//            default:
-//                gotoPage("/invalid.jsp", request, response);
-//                break;
+            case "home":
+                ShowsEG show = new ShowsEG();
+                ArrayList<ShowsEG> allshows = new ArrayList<>();
+                allshows = show.getAllShows();
+                session.setAttribute("allshows", allshows);
+                gotoPage("/Admin.jsp", request, response);
+                break;  
+            case "All Shows":
+                gotoPage("/AllShows.jsp", request, response);
+                break;
+            case "getShowView":
+                String showid = request.getParameter("show_id");
+                int show_id = Integer.parseInt(showid);
+                ShowsEG n = new ShowsEG();
+                n = n.getShowDetails(show_id);
+                
+                if (n != null) {
+                    
+                    session.setAttribute("shows", n);
+                    AdminEG u = new AdminEG();
+                    System.out.println("get show details " + n.getUserid());
+                    u = u.getUserDetails(n.getUserid());
+                    if(u!=null) {
+                        System.out.println("shows" + u.getUsername());
+                        session.setAttribute("showUser", u);
+                    }
+                    else{
+                        System.out.println("show details null");
+                    }
+                    
+                }
+                gotoPage("/DetailedShowView.jsp", request, response);
+                break;
+            default:
+                gotoPage("/invalid.jsp", request, response);
+                break;
         }
     }
     private void gotoPage(String url,
@@ -109,16 +113,14 @@ public class ShowController extends HttpServlet {
         String show_title = request.getParameter("show_title");
         String show_description = request.getParameter("show_description");
         String show_image = request.getParameter("show_image");
-//        AdminEG user = (AdminEG) session.getAttribute("user");
-//        System.out.println("user_id " + user.getUserid());
+//        AdminEG user = (AdminEG) session.getAttribute("users");
+//        System.out.println("user_id: " + user.getUserid());
         ShowsEG shows = new ShowsEG(show_title, show_description, show_image);
         shows = shows.saveToDatabase();
         
         session.setAttribute("shows", shows);
         System.out.println("show_id" + shows.getShow_id());
-    }
-        
-    
+    }      
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 //    /**

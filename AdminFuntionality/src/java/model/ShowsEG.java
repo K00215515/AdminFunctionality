@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -29,6 +30,7 @@ public class ShowsEG implements Serializable{
     public ShowsEG(String show_title, String show_description, String show_image){
         this.show_title = show_title;
         this.show_description = show_description;
+        this.show_image = show_image;
     }
     
     public ShowsEG(int show_id, String show_title, String show_description, String show_image){
@@ -70,7 +72,7 @@ public class ShowsEG implements Serializable{
         this.show_description = show_description;
     }
     public String getShow_image() {
-        return show_image;
+        return show_image;   
     }
 
     public void setShow_image(String show_image) {
@@ -109,5 +111,72 @@ public class ShowsEG implements Serializable{
             System.out.println(ex);
         }
         return this;
+    }
+
+    public ShowsEG getShowDetails(int show_id) {
+        ShowsEG n = null;
+        Connection connection = DatabaseUtilityClass.getConnection();
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
+
+        String query = "Select * from Shows where show_id = ?";
+
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, show_id);
+            
+            resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                n = new ShowsEG();
+                n.setShow_id(resultSet.getInt("show_id"));
+                n.setShow_title(resultSet.getString("show_title"));
+                n.setShow_description(resultSet.getString("show_description"));
+                n.setShow_image(resultSet.getString("show_image"));
+//                n.setUserId(resultSet.getInt("UserId"));
+                return n;
+            }
+
+            connection.close();
+            
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return null;
+        }
+        
+
+        return n;
+    }
+
+    public ArrayList<ShowsEG> getAllShows() {
+        ArrayList allshows = new ArrayList<>();
+
+        Connection connection = DatabaseUtilityClass.getConnection();
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
+
+        String query = "Select * from Shows";
+
+        try {
+
+            ps = connection.prepareStatement(query);
+            resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                ShowsEG n = new ShowsEG();
+                n.setShow_id(resultSet.getInt("show_id"));
+                n.setShow_title(resultSet.getString("show_title"));
+                n.setShow_description(resultSet.getString("show_description"));
+                n.setShow_image(resultSet.getString("show_image"));
+                
+                
+//                n.setUserId(resultSet.getInt("userId"));
+                allshows.add(n);
+            }
+            connection.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return null;
+        }
+        return allshows;
     }
 }

@@ -35,26 +35,23 @@ public class AdminControllerEG extends HttpServlet {
 //     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet AdminControllerEG</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet AdminControllerEG at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
+        String menu = "home";
         HttpSession session = request.getSession();
         AdminEG admin = (AdminEG) session.getAttribute("admin");
         if (admin == null) {
             admin = new AdminEG();
             session.setAttribute("admin", admin);
         }
+//        AdminEG admin = (AdminEG) session.getAttribute("admin");
+//        if (admin == null) {
+//            admin = new AdminEG();
+//            session.setAttribute("admin", admin);
+//        }
 
-        String menu = request.getParameter("menu");
+        menu = request.getParameter("menu");
+        if (menu == null) {
+            menu = "home";
+        }
         
         switch(menu){
             case "LogIn":
@@ -69,10 +66,7 @@ public class AdminControllerEG extends HttpServlet {
                 break;
             case "Manage Users":
                 gotoPage("/ManageUsers.jsp", request, response);
-                break;
-//            case "Save":
-//                ProcessCourseSave(request, session);
-//                break;             
+                break;           
             case "Process Login":
                 boolean validLogin = ProcessLogin(request, session);
                 if (!validLogin) {
@@ -86,11 +80,11 @@ public class AdminControllerEG extends HttpServlet {
                 break;
             case "home":
 
-                AdminEG notices = new AdminEG();
+                AdminEG users = new AdminEG();
                 ArrayList<AdminEG> allusers = new ArrayList<>();
-                allusers = notices.getAllUsers();
+                allusers = users.getAllUsers();
                 session.setAttribute("allusers", allusers);
-                gotoPage("/Home.jsp", request, response);
+                gotoPage("/Admin.jsp", request, response);
                 break;
             case "getUsersView":
                 String suserid = request.getParameter("user_id");
@@ -100,14 +94,13 @@ public class AdminControllerEG extends HttpServlet {
                 
                 if (n != null) {
                     
-                    session.setAttribute("user", n);
-                    //get user details for notcie
-                    AdminEG u = new  AdminEG();
+                    session.setAttribute("admin", n);
+                    AdminEG u = new AdminEG();
                     System.out.println("get user details " + n.getUserid());
                     u = u.getUserDetails(n.getUserid());
                     if(u!=null) {
-                        System.out.println("user" + u.getUsername());
-                        session.setAttribute("user", u);
+                        System.out.println("admin" + u.getUsername());
+                        session.setAttribute("admin", u);
                     }
                     else{
                         System.out.println("user details null");
@@ -134,7 +127,7 @@ public class AdminControllerEG extends HttpServlet {
         String password = request.getParameter("password");
         AdminEG admin = new AdminEG(username, password);
         admin.Login(username, password);
-        session.setAttribute("admin", admin);
+        session.setAttribute("users", admin);
        
         if (admin.getUserid()!=0) {
             return true;
@@ -152,19 +145,9 @@ public class AdminControllerEG extends HttpServlet {
         AdminEG admin = new AdminEG(username, password, email, F_name, L_name);
         admin = admin.saveToDatabase();
 
-        session.setAttribute("admin", admin);
+        session.setAttribute("users", admin);
         System.out.println("user_id" + admin.getUserid());
     }
-//    private void ProcessCourseSave(HttpServletRequest request, HttpSession session) {
-//        String course_name = request.getParameter("course_name");
-//        String course_Description = request.getParameter("course_Description");
-//        
-//        CourseEG course = new CourseEG(course_name, course_Description);
-//        course.saveToDatabase();
-//        
-//        session.setAttribute("course", course);
-//        System.out.println("course_id" + course.getCourse_id());
-//    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 //    /**
@@ -203,11 +186,5 @@ public class AdminControllerEG extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
-    
-
-    
-
-    
+    }// </editor-fold>   
 }

@@ -26,36 +26,35 @@
     <body>
         <header class="main-header">
         <div class="Logo">
-            <img src="images/litGalleryLogo.png" alt="Logo"/ height="800px" width="300px">
+            <img src="images/litGalleryLogo.png" alt="Logo"height="800px" width="300px"/>
                 </div>
                 <div class="nav">
                     <label for="toggle">&#9776;</label>
                     <input type="checkbox" id="toggle"/>
                 <div class="menu">
                     <a href="Home.jsp">Home</a>
-<!--                        <a href="Gallery.html">Gallery</a>-->
                     <a href="Shows.jsp">Shows</a>
                     <a href="Admin.jsp">Admin</a>
-<!--                        <a href="Profile.html">Profile</a> -->
-<!--                    <a href="SignUp.jsp">SignIn</a> 
-                    <a href="Logout.jsp">Logout</a> -->
+
                 </div>
             </div>
         </header> 
             <div class="logIn">
-                <form action="ShowController" method="get" class="register-form" name="showsn">
+                <form action="ShowController" method="get" class="register-form" name="shows">
                     
                 <br>
                 <label>Show Name</label>
-                <input type="text" name="show_title" id="show_title""/>
+                <input type="text" name="show_title" id="show_title" value="${shows.show_title}"/>
                 <br>
                 <label>Show Description</label>
-                <input type="text" name="show_description" id="show_description""/>
+                <input type="text" name="show_description" id="show_description" value="${shows.show_description}"/>
                 <br>
                 <label>Show Image</label>
-                <input type="text" name="show_image" id="show_image""/>
+                <input type="text" name="show_image" id="show_image" value="${shows.show_image}"/>
                 <br>
-
+                <input type="submit" name="menu" value="Update" />
+                <input type="submit" name="menu" value="Delete" />
+                </form>
             </div>
         </div>
         <script

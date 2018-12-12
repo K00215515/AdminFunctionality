@@ -163,7 +163,7 @@ public class AdminEG implements Serializable{
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         
-        String query = "SELECT * FROM User WHERE userid = ?;";
+        String query = "SELECT * FROM users WHERE user_id = ?;";
         
         try{
             ps = connection.prepareStatement(query);
@@ -210,7 +210,6 @@ public class AdminEG implements Serializable{
                 u.setEmail(resultSet.getString("email"));
                 u.setF_name(resultSet.getString("F_name"));
                 u.setL_name(resultSet.getString("L_name"));
-                u.setUserid(resultSet.getInt("user_id"));
                 allusers.add(u);
             }
             connection.close();

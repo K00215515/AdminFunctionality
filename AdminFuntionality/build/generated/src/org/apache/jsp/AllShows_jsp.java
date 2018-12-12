@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import model.ShowsEG;
 
-public final class Shows_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class AllShows_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -60,33 +60,39 @@ public final class Shows_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
-      out.write("        <meta charset=\"utf-8\">\n");
-      out.write("        <link href=\"css/layout.css\" rel=\"stylesheet\" type=\"text/css\">\n");
-      out.write("        <link href=\"css/font.css\" rel=\"stylesheet\" type=\"text/css\">\n");
-      out.write("        <link href=\"css/colour.css\" rel=\"stylesheet\" type=\"text/css\">\n");
-      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
-      out.write("\n");
-      out.write("        <title>Shows</title> \n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <link href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/css/layout.css\" rel=\"stylesheet\" type=\"text/css\">\n");
+      out.write("        <link href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/css/font.css\" rel=\"stylesheet\" type=\"text/css\">\n");
+      out.write("        <link href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/css/colour.css\" rel=\"stylesheet\" type=\"text/css\">\n");
+      out.write("        <title>All Shows</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <div class=\"shows-page\">\n");
-      out.write("            <header class=\"main-header\">\n");
-      out.write("                <img src=\"images/litGalleryLogo.png\" alt=\"Logo\"/>\n");
+      out.write("    <header class=\"main-header\">\n");
+      out.write("        <div class=\"Logo\">\n");
+      out.write("            <img src=\"images/litGalleryLogo.png\" alt=\"Logo\"height=\"800px\" width=\"300px\"/>\n");
+      out.write("                </div>\n");
       out.write("                <div class=\"nav\">\n");
       out.write("                    <label for=\"toggle\">&#9776;</label>\n");
       out.write("                    <input type=\"checkbox\" id=\"toggle\"/>\n");
-      out.write("                    <div class=\"menu\">\n");
-      out.write("                        <a href=\"Home.jsp\">Home</a>\n");
+      out.write("                <div class=\"menu\">\n");
+      out.write("                    <a href=\"Home.jsp\">Home</a>\n");
       out.write("<!--                        <a href=\"Gallery.html\">Gallery</a>-->\n");
-      out.write("                        <a href=\"Shows.jsp\">Shows</a>\n");
-      out.write("                        <a href=\"Admin.jsp\">Admin</a>\n");
-      out.write("<!--                        <a href=\"Profile.html\">Profile</a>-->\n");
-      out.write("                        <a href=\"SignUp.jsp\">Sign Up</a>\n");
-      out.write("                        <a href=\"LogIn.jsp\">Log In</a> \n");
-      out.write("                    </div>\n");
+      out.write("                    <a href=\"Shows.jsp\">Shows</a>\n");
+      out.write("                    <a href=\"Admin.jsp\">Admin</a>\n");
+      out.write("<!--                        <a href=\"Profile.html\">Profile</a> -->\n");
+      out.write("<!--                    <a href=\"SignUp.jsp\">SignIn</a> \n");
+      out.write("                    <a href=\"Logout.jsp\">Logout</a> -->\n");
       out.write("                </div>\n");
-      out.write("            </header> \n");
-      out.write("                    <table id=\"m\">\n");
+      out.write("            </div>\n");
+      out.write("        </header>\n");
+      out.write("        <div class=\"logIn\">\n");
+      out.write("        <table id=\"m\">\n");
       out.write("                    <tr>             \n");
       out.write("                        <td>image</td>\n");
       out.write("                        <td>show title</td>\n");
@@ -95,13 +101,10 @@ public final class Shows_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("                \n");
-      out.write("                    </table>\n");
-      out.write("        </div>\n");
-      out.write("        <div class=\"footer\">\n");
-      out.write("            <footer></footer>\n");
+      out.write("            </table>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");
+      out.write("    \n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -133,22 +136,21 @@ public final class Shows_jsp extends org.apache.jasper.runtime.HttpJspBase
         do {
           out.write("                  \n");
           out.write("                        <tr>                                            \n");
-          out.write("                            \n");
           out.write("                            <td ><img src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("/images/");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" alt=\"shows\" width=\"80\" height=\"80\"></td>\n");
-          out.write("                                <td ><a href=\"ShowControllerEG?menu=getShowView&noticeId=");
+          out.write("                            <td ><a href=\"ShowControllerEG?menu=getShowView&show_id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write('"');
           out.write('>');
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_title}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</a> </td>\n");
-          out.write("                            <td ><a href=\"ShowControllerEG?menu=deleteShow&noticeId=");
+          out.write("                            <td ><a href=\"ShowControllerEG?menu=deleteShow&show_id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">Delete</a> </td>\n");
-          out.write("                            <td ><a href=\"ShowControllerEG?menu=updateShow&noticeId=");
+          out.write("                            <td ><a href=\"ShowControllerEG?menu=updateShow&show_id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">Update</a> </td>\n");
           out.write("                         </tr>\n");
