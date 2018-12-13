@@ -1,12 +1,12 @@
 <%-- 
-    Document   : AddShow
-    Created on : 10-Dec-2018, 16:03:05
+    Document   : ManageUsers
+    Created on : 13-Dec-2018, 13:33:56
     Author     : K00215515 Evan Grimes
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="model.ShowsEG"%>
+<%@page import="model.AdminEG"%> <%-- UsersEG --%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +14,7 @@
         <link href="${pageContext.request.contextPath}/css/layout.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/colour.css" rel="stylesheet" type="text/css">
-        <title>Add Show</title>
+        <title>All Shows</title>
     </head>
     <body>
     <header class="main-header">
@@ -31,20 +31,25 @@
 
                 </div>
             </div>
-        </header> 
+        </header>
         <div class="logIn">
-            <form action="ShowControllerEG" method="post" class="register-form" name="shows">
-                <label>Show Name</label>
-                <input type="text" name="show_title" id="show_title" value="${shows.show_title}"/>
-                <br>
-                <label>Show Description</label>
-                <input type="text" name="show_description" id="show_description" value="${shows.show_description}"/>
-                <br>
-                <label>Show Image</label>
-                <input type="text" name="show_image" id="show_image" value="${shows.show_image}"/><br>
-                <input type="submit" name="home" value="List Shows" />
-                <input type="submit" name="menu" value="SaveShow" />
+            <form action="AdminControllerEG" method="post" class="register-form" name="admin">
+
+                <input type="submit" name="home" value="List Users" />
             </form>
+        <table id="m">
+                    <tr>             
+                        <td>Username</td>
+                    </tr>
+                    <c:forEach var="users" items="${allusers}">                  
+                        <tr>                                                                        
+                            <td ><a href="AdminControllerEG?menu=getUserView&user_id=${users.user_id}">${users.username}</a> </td>
+                            <td ><a href="AdminControllerEG?menu=deleteUser&user_id=${users.user_id}">Delete</a> </td>
+                            <td ><a href="AdminControllerEG?menu=updateUser&user_id=${users.user_id}">Update</a> </td> <%-- or userControllerEG--%>
+                         </tr>
+                    </c:forEach>
+            </table>
         </div>
-    </body>
+    </body> 
 </html>
+

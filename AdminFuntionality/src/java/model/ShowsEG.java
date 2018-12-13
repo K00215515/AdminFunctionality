@@ -179,4 +179,48 @@ public class ShowsEG implements Serializable{
         }
         return allshows;
     }
+
+    public ShowsEG updateShow() {
+        Connection connection = DatabaseUtilityClass.getConnection();
+        String sql = "UPDATE shows SET show_title = ?, show_description = ?, show_image = ? WHERE show_id = ?;";
+        
+        try{
+            PreparedStatement ps = connection.prepareStatement(sql);
+          
+            ps.setString(1, this.getShow_title());
+            ps.setString(2, this.getShow_description());
+            ps.setString(3, this.getShow_image());
+            ps.setInt(4, this.getShow_id());
+            
+            ps.executeUpdate();
+            System.out.println(ps.toString());
+            connection.close();
+            
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return this;
+    }
+    public boolean deleteShow(int show_id){
+        ShowsEG s = null;
+        Connection connection = DatabaseUtilityClass.getConnection();
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
+        
+        String sql = "DELETE FROM shows WHERE show_id = ?";
+        
+        try{
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, show_id);
+            
+            int i = ps.executeUpdate();
+            if(i == 0) return false;
+            connection.close();
+        
+        }catch(SQLException ex){
+            System.out.println(ex);
+            return false;
+        }
+        return true;
+    }
 }

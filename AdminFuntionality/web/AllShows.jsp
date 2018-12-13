@@ -1,7 +1,7 @@
 <%-- 
     Document   : AllShows
     Created on : 12-Dec-2018, 11:19:42
-    Author     : K00215515
+    Author     : K00215515 Evan Grimes
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -33,6 +33,10 @@
             </div>
         </header>
         <div class="logIn">
+            <form action="ShowControllerEG" method="post" class="register-form" name="shows">
+
+                <input type="submit" name="home" value="List Shows" />
+            </form>
         <table id="m">
                     <tr>             
                         <td>Image</td>

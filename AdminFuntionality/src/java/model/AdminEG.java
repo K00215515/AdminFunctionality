@@ -17,17 +17,23 @@ import java.util.ArrayList;
  * @author K00215515 Evan Grimes 10/12/2018
  */
 public class AdminEG implements Serializable{
-    private int userid;
+    private int user_id;
     private String username;
     private String password;
     private String email;
     private String F_name;
     private String L_name;
     
-    
     public AdminEG(){
     }
-    
+    public AdminEG(int user_id, String username, String password, String email, String F_name, String L_name) {
+        this.user_id = user_id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.F_name = F_name;
+        this.L_name = L_name;
+    }
     public AdminEG(String username, String password, String email, String F_name, String L_name){
         this.username = username;
         this.password = password;
@@ -39,21 +45,14 @@ public class AdminEG implements Serializable{
         this.username = username;
         this.password = password;
     }
-    public AdminEG(int userid, String username, String password, String email, String F_name, String L_name) {
-        this.userid = userid;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.F_name = F_name;
-        this.L_name = L_name;
-    }
     
-    public AdminEG(int userid){
-        this.userid = userid;
+    
+    public AdminEG(int user_id){
+        this.user_id = user_id;
     }
     
     public int getUserid() {
-        return userid;
+        return user_id;
     }
     
     public String getUsername() {
@@ -75,8 +74,8 @@ public class AdminEG implements Serializable{
         return L_name;
     }
     
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setUserid(int user_id) {
+        this.user_id = user_id;
     }
     
     public void setUsername(String username) {
@@ -112,7 +111,7 @@ public class AdminEG implements Serializable{
             resultSet = ps.executeQuery();
             
             while(resultSet.next()){
-                this.userid = resultSet.getInt("user_id");
+                this.user_id = resultSet.getInt("user_id");
                 this.username = resultSet.getString("username");
                 this.password = resultSet.getString("password");
                 this.email = resultSet.getString("email");
@@ -148,7 +147,7 @@ public class AdminEG implements Serializable{
             ps.executeUpdate();
             ResultSet rs = ps2.executeQuery();
             while(rs.next()){
-                this.userid = rs.getInt(1);
+                this.user_id = rs.getInt(1);
             }
                
             connection.close();
@@ -157,7 +156,7 @@ public class AdminEG implements Serializable{
         }
         return this;
     }
-    public AdminEG getUserDetails(int userId) {
+    public AdminEG getUserDetails(int userid) {
          AdminEG u = null; 
         Connection connection = DatabaseUtilityClass.getConnection();
         PreparedStatement ps = null;
@@ -167,16 +166,17 @@ public class AdminEG implements Serializable{
         
         try{
             ps = connection.prepareStatement(query);
-            ps.setString(1, this.getUsername());
-            ps.setString(2, this.getPassword());
-            ps.setString(3, this.getEmail());
-             ps.setString(4, this.getF_name());
-            ps.setString(5, this.getL_name());
-            ps.setInt(6, this.getUserid());
+            ps.setInt(1, userid);
+//            ps.setString(2, this.getUsername());
+//            ps.setString(3, this.getPassword());
+//            ps.setString(4, this.getEmail());
+//             ps.setString(5, this.getF_name());
+//            ps.setString(6, this.getL_name());
+//            ps.setInt(1, this.getUserid());
             
             
             while (resultSet.next()) {
-                this.userid = resultSet.getInt("user_id");
+                this.user_id = resultSet.getInt("user_id");
                 this.username = resultSet.getString("username");
                 this.password = resultSet.getString("password");
                 this.email = resultSet.getString("email");
@@ -219,4 +219,50 @@ public class AdminEG implements Serializable{
         }
         return allusers;
     }
+//    public AdminEG updateUser() {
+//        Connection connection = DatabaseUtilityClass.getConnection();
+//        String sql = "UPDATE users SET username = ?, password = ?, email = ?, F_name = ?, L_name = ? WHERE user_id = ?;";
+//      
+//        try{
+//            PreparedStatement ps = connection.prepareStatement(sql);
+//          
+//            ps.setString(1, this.getUsername());
+//            ps.setString(2, this.getPassword());
+//            ps.setString(3, this.getEmail());
+//            ps.setString(4, this.getF_name());
+//            ps.setString(5, this.getL_name());
+//            ps.setInt(6, this.getUserid());
+//            
+//            ps.executeUpdate();
+//            System.out.println(ps.toString());
+//            connection.close();
+//            
+//        }catch(SQLException ex){
+//            System.out.println(ex);
+//        }
+//        return this;
+//    }
+//    public boolean deleteUser(int user_id){
+//        AdminEG s = null;
+//        Connection connection = DatabaseUtilityClass.getConnection();
+//        PreparedStatement ps = null;
+//        ResultSet resultSet = null;
+//        
+//        String sql = "DELETE FROM users WHERE user_id = ?";
+//        
+//        try{
+//            ps = connection.prepareStatement(sql);
+//            ps.setInt(1, user_id);
+//            
+//            int i = ps.executeUpdate();
+//            if(i == 0) return false;
+//            connection.close();
+//        
+//        }catch(SQLException ex){
+//            System.out.println(ex);
+//            return false;
+//        }
+//        return true;
+//    }
+    
 }

@@ -37,10 +37,10 @@ public class AdminControllerEG extends HttpServlet {
             throws ServletException, IOException {
         String menu = "home";
         HttpSession session = request.getSession();
-        AdminEG admin = (AdminEG) session.getAttribute("admin");
-        if (admin == null) {
-            admin = new AdminEG();
-            session.setAttribute("admin", admin);
+        AdminEG users = (AdminEG) session.getAttribute("users");
+        if (users == null) {
+            users = new AdminEG();
+            session.setAttribute("users", users);
         }
 //        AdminEG admin = (AdminEG) session.getAttribute("admin");
 //        if (admin == null) {
@@ -80,13 +80,13 @@ public class AdminControllerEG extends HttpServlet {
                 break;
             case "home":
 
-                AdminEG users = new AdminEG();
+                AdminEG user = new AdminEG();
                 ArrayList<AdminEG> allusers = new ArrayList<>();
-                allusers = users.getAllUsers();
+                allusers = user.getAllUsers();
                 session.setAttribute("allusers", allusers);
-                gotoPage("/Admin.jsp", request, response);
+                gotoPage("/ManageUsers.jsp", request, response);
                 break;
-            case "getUsersView":
+            case "getUserView":
                 String suserid = request.getParameter("user_id");
                 int userid = Integer.parseInt(suserid);
                 AdminEG n = new AdminEG();
@@ -94,13 +94,13 @@ public class AdminControllerEG extends HttpServlet {
                 
                 if (n != null) {
                     
-                    session.setAttribute("admin", n);
+                    session.setAttribute("users", n);
                     AdminEG u = new AdminEG();
                     System.out.println("get user details " + n.getUserid());
                     u = u.getUserDetails(n.getUserid());
                     if(u!=null) {
-                        System.out.println("admin" + u.getUsername());
-                        session.setAttribute("admin", u);
+                        System.out.println("users" + u.getUsername());
+                        session.setAttribute("users", u);
                     }
                     else{
                         System.out.println("user details null");

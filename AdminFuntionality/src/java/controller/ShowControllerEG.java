@@ -59,7 +59,11 @@ public class ShowControllerEG extends HttpServlet {
                 gotoPage("/AddShow.jsp", request, response); 
                 break;
                 
-            case "save":
+            case "List Shows":
+//                ProcessSave(request, session);
+                gotoPage("/AllShows.jsp", request, response); 
+                break;
+            case "SaveShow":
                 ProcessSave(request, session);
                 gotoPage("/Admin.jsp", request, response); 
                 break;
@@ -68,8 +72,31 @@ public class ShowControllerEG extends HttpServlet {
                 ArrayList<ShowsEG> allshows = new ArrayList<>();
                 allshows = show.getAllShows();
                 session.setAttribute("allshows", allshows);
+                gotoPage("/AllShows.jsp", request, response);
+                break; 
+            case "deleteShow":
+                String showid1 = request.getParameter("show_id");
+                int shows_id = Integer.parseInt(showid1);
+                ShowsEG shows1 = new ShowsEG();
+                boolean worked = shows1.deleteShow(shows_id);
+                
+                ArrayList<ShowsEG> allshows1 = new ArrayList<>();
+                allshows1 = shows1.getAllShows();
+                session.setAttribute("allshows", allshows1);
                 gotoPage("/Admin.jsp", request, response);
-                break;  
+                break;
+            case "updateShow":
+                gotoPage("/DetailedShowView.jsp", request, response);
+                break;
+            case "Update":
+                System.out.println("Updating");
+                ProcessUpdate(request, session, shows);
+                gotoPage("/Admin.jsp", request, response);  
+                break;
+            case "Delete":
+                ProcessDelete(request, session, shows);
+                gotoPage("/Admin.jsp", request, response);
+                break;    
             case "All Shows":
                 gotoPage("/AllShows.jsp", request, response);
                 break;
@@ -79,21 +106,21 @@ public class ShowControllerEG extends HttpServlet {
                 ShowsEG n = new ShowsEG();
                 n = n.getShowDetails(show_id);
                 
-                if (n != null) {
+//                if (n != null) {
                     
                     session.setAttribute("shows", n);
-                    AdminEG u = new AdminEG();
-                    System.out.println("get show details " + n.getUserid());
-                    u = u.getUserDetails(n.getUserid());
-                    if(u!=null) {
-                        System.out.println("shows" + u.getUsername());
-                        session.setAttribute("showUser", u);
-                    }
-                    else{
-                        System.out.println("show details null");
-                    }
+//                    AdminEG u = new AdminEG();
+//                    System.out.println("get show details " + n.getUserid());
+//                    u = u.getUserDetails(u.getUserid());
+//                    if(u!=null) {
+//                        System.out.println("shows" + u.getUsername());
+//                        session.setAttribute("showUser ", u);
+//                }
+//                else{
+//                    System.out.println("show details null");
+//                }
                     
-                }
+//                }
                 gotoPage("/DetailedShowView.jsp", request, response);
                 break;
             default:
@@ -120,7 +147,23 @@ public class ShowControllerEG extends HttpServlet {
         
         session.setAttribute("shows", shows);
         System.out.println("show_id" + shows.getShow_id());
-    }      
+    }  
+    private void ProcessUpdate(HttpServletRequest request, HttpSession session, ShowsEG shows) {
+        String show_title = request.getParameter("show_title");
+        String show_description = request.getParameter("show_description");
+        String show_image = request.getParameter("show_image");
+        System.out.println("show_id: " + shows.getShow_id());
+        ShowsEG s = new ShowsEG(show_title, show_description, show_image);
+        s = s.updateShow();
+        session.setAttribute("shows", shows);
+        System.out.println("show_id:" + shows.getShow_id());
+    }   
+    private void ProcessDelete(HttpServletRequest request, HttpSession session, ShowsEG shows) {
+        ShowsEG show = new ShowsEG();
+        show.deleteShow(show.getShow_id());
+        session.setAttribute("shows", show);
+        System.out.println("show_id" + show.getShow_id());  
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 //    /**
@@ -162,5 +205,4 @@ public class ShowControllerEG extends HttpServlet {
     }// </editor-fold>
 
     
-
 }

@@ -37,7 +37,7 @@
             </div>
         </header> 
             <div class="logIn">
-                <form action="UserControllerEG" method="get" class="register-form" name="users">
+                <form action="AdminControllerEG" method="get" class="register-form" name="users">
                     
                 <br>
                 <label>Username</label>
@@ -48,6 +48,12 @@
                 <br>
                 <label>Email</label>
                 <input type="email" name="email" id="email" value="${users.email}"/>
+                <br>
+                <label>F_name</label>
+                <input type="text" name="username" id="username" value="${users.F_name}"/>
+                <br>
+                <label>L_name</label>
+                <input type="text" name="username" id="username" value="${users.F_name}"/>
                 <br>
                 <input type="submit" name="menu" value="Update" />
                 <input type="submit" name="menu" value="Delete" />

@@ -69,7 +69,7 @@ public final class LogIn_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>   \n");
       out.write("           <header class=\"main-header\">\n");
       out.write("                <div class=\"Logo\">\n");
-      out.write("                <img src=\"images/litGalleryLogo.png\" alt=\"Logo\"/ height=\"800px\" width=\"300px\">\n");
+      out.write("                <img src=\"images/litGalleryLogo.png\" alt=\"Logo\"height=\"800px\" width=\"300px\"/>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"nav\">\n");
       out.write("                    <label for=\"toggle\">&#9776;</label>\n");

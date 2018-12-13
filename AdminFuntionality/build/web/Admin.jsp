@@ -44,7 +44,7 @@
                 </form>
                 <form action="ShowControllerEG" class="shows-page">
                    <input type="submit" name="menu" value="Add Show" />  
-                   <input type="submit" name="home" value="All Shows"/>
+                   <input type="submit" name="menu" value="All Shows"/>
                 </form>
             <table id="m">
                     <tr>             
@@ -55,8 +55,8 @@
                         <tr>                                            
                             <td ><img src="${pageContext.request.contextPath}/images/${shows.show_image}" alt="shows" width="80" height="80"></td>
                             <td ><a href="ShowControllerEG?menu=getShowView&show_id=${shows.show_id}">${shows.show_title}</a> </td>
-                            <td ><a href="ShowControllerEG?menu=deleteShow&show_id=${shows.show_id}">Delete</a> </td>
-                            <td ><a href="ShowControllerEG?menu=updateShow&show_id=${shows.show_id}">Update</a> </td>
+                            <td ><a href="ShowControllerEG?menu=deleteShow&show_id=${shows.show_id}">delete</a> </td>
+                            <td ><a href="ShowControllerEG?menu=updateShow&show_id=${shows.show_id}">update</a> </td>
                          </tr>
                     </c:forEach>
             </table>

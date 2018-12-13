@@ -39,7 +39,7 @@
         </header> 
             
         <div class="logIn">
-            <form action="UserControllerEG" method="post" class="register-form" name="registration">
+            <form action="AdminControllerEG" method="post" class="register-form" name="users">
                 <h2>Sign Up</h2><br>
                 <label>User name</label>
                 <input type="text" name="username" id="username" value="${users.username}"/>

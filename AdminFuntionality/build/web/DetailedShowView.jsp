@@ -1,13 +1,7 @@
 <%-- 
-    Document   : DetailedNoticeView
-    Created on : 04-Dec-2017, 10:01:52
-    Author     : Elizabeth.Bourke
---%>
-
-<%-- 
-    Document   : register
-    Created on : 07-Dec-2016, 21:39:41
-    Author     : AMarie
+    Document   : DetailedShowView
+    Created on : 12-Dec-2018, 14:06:00
+    Author     : K00215515 Evan Grimes
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -40,7 +34,7 @@
             </div>
         </header> 
             <div class="logIn">
-                <form action="ShowController" method="get" class="register-form" name="shows">
+                <form action="ShowControllerEG" method="get" class="register-form" name="shows">
                     
                 <br>
                 <label>Show Name</label>
@@ -50,6 +44,7 @@
                 <input type="text" name="show_description" id="show_description" value="${shows.show_description}"/>
                 <br>
                 <label>Show Image</label>
+                
                 <input type="text" name="show_image" id="show_image" value="${shows.show_image}"/>
                 <br>
                 <input type="submit" name="menu" value="Update" />

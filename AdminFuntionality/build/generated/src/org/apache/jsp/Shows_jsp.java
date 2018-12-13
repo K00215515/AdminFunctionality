@@ -95,7 +95,6 @@ public final class Shows_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("                \n");
       out.write("                    </table>\n");
       out.write("        </div>\n");
       out.write("        <div class=\"footer\">\n");
@@ -134,21 +133,21 @@ public final class Shows_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                  \n");
           out.write("                        <tr>                                            \n");
           out.write("                            \n");
-          out.write("                            <td ><img src=\"");
+          out.write("                            <td><img src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("/images/");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" alt=\"shows\" width=\"80\" height=\"80\"></td>\n");
-          out.write("                                <td ><a href=\"ShowControllerEG?menu=getShowView&noticeId=");
+          out.write("                            <td><a href=\"ShowControllerEG?menu=getShowView&noticeId=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write('"');
           out.write('>');
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_title}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</a> </td>\n");
-          out.write("                            <td ><a href=\"ShowControllerEG?menu=deleteShow&noticeId=");
+          out.write("                            <td><a href=\"ShowControllerEG?menu=deleteShow&noticeId=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">Delete</a> </td>\n");
-          out.write("                            <td ><a href=\"ShowControllerEG?menu=updateShow&noticeId=");
+          out.write("                            <td><a href=\"ShowControllerEG?menu=updateShow&noticeId=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">Update</a> </td>\n");
           out.write("                         </tr>\n");
