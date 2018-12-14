@@ -42,11 +42,6 @@ public class AdminControllerEG extends HttpServlet {
             users = new AdminEG();
             session.setAttribute("users", users);
         }
-//        AdminEG admin = (AdminEG) session.getAttribute("admin");
-//        if (admin == null) {
-//            admin = new AdminEG();
-//            session.setAttribute("admin", admin);
-//        }
 
         menu = request.getParameter("menu");
         if (menu == null) {
@@ -79,25 +74,50 @@ public class AdminControllerEG extends HttpServlet {
                 }
                 break;
             case "home":
-
                 AdminEG user = new AdminEG();
                 ArrayList<AdminEG> allusers = new ArrayList<>();
                 allusers = user.getAllUsers();
                 session.setAttribute("allusers", allusers);
                 gotoPage("/ManageUsers.jsp", request, response);
                 break;
+            
+            case "deleteUser":
+                String user1 = request.getParameter("user_id");
+                int users_id = Integer.parseInt(user1);
+                AdminEG users1 = new AdminEG();
+                boolean worked = users1.deleteUser(users_id);
+                
+                ArrayList<AdminEG> allusers1 = new ArrayList<>();
+                allusers1 = users1.getAllUsers();
+                session.setAttribute("allusers", allusers1);
+                gotoPage("/Admin.jsp", request, response);
+                break;
+            case "updateUser":
+                gotoPage("/DetailedUserView.jsp", request, response);
+                break;
+            case "Update":
+                System.out.println("Updating");
+                ProcessUpdate(request, session, users);
+                gotoPage("/Admin.jsp", request, response);  
+                break;
+            case "Delete":
+                ProcessDelete(request, session, users);
+                gotoPage("/Admin.jsp", request, response);
+                break;
+            
             case "getUserView":
-                String suserid = request.getParameter("user_id");
-                int userid = Integer.parseInt(suserid);
+                String userid = request.getParameter("user_id");
+                int user_id;
+                user_id = Integer.parseInt(userid);
                 AdminEG n = new AdminEG();
-                n = n.getUserDetails(userid);
+                n = n.getUserDetails(user_id);
                 
                 if (n != null) {
                     
                     session.setAttribute("users", n);
                     AdminEG u = new AdminEG();
-                    System.out.println("get user details " + n.getUserid());
-                    u = u.getUserDetails(n.getUserid());
+                    System.out.println("get user details " + n.getUser_id());
+                    u = u.getUserDetails(n.getUser_id());
                     if(u!=null) {
                         System.out.println("users" + u.getUsername());
                         session.setAttribute("users", u);
@@ -106,7 +126,7 @@ public class AdminControllerEG extends HttpServlet {
                         System.out.println("user details null");
                     }
                 }
-                gotoPage("/ManageUsers.jsp", request, response);
+                gotoPage("/DetailedUserView.jsp", request, response);
                 break;
             default:
                 gotoPage("/invalid.jsp", request, response);
@@ -129,7 +149,7 @@ public class AdminControllerEG extends HttpServlet {
         admin.Login(username, password);
         session.setAttribute("users", admin);
        
-        if (admin.getUserid()!=0) {
+        if (admin.getUser_id()!=0) {
             return true;
         } else {
             return false;
@@ -139,15 +159,38 @@ public class AdminControllerEG extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
-        String F_name = request.getParameter("F_name");
+        String f_name = request.getParameter("F_name");
         String L_name = request.getParameter("L_name");
         
-        AdminEG admin = new AdminEG(username, password, email, F_name, L_name);
+        AdminEG admin = new AdminEG(username, password, email, f_name, L_name);
         admin = admin.saveToDatabase();
 
         session.setAttribute("users", admin);
-        System.out.println("user_id" + admin.getUserid());
+        System.out.println("user_id" + admin.getUser_id());
     }
+    private void ProcessUpdate(HttpServletRequest request, HttpSession session, AdminEG users) {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
+        String f_name = request.getParameter("F_name");
+        String L_name = request.getParameter("L_name");
+        
+        System.out.println("user_id: " + users.getUser_id());
+        AdminEG u = new AdminEG(users.getUser_id(), username, password, email, f_name, L_name);
+        
+        u = u.updateUser();
+        session.setAttribute("users", users);
+        System.out.println("user_id: " + users.getUser_id());
+        
+    }
+    private void ProcessDelete(HttpServletRequest request, HttpSession session, AdminEG users) {
+        AdminEG user = new AdminEG();
+        user.deleteUser(user.getUser_id());
+        session.setAttribute("users", user);
+        System.out.println("user_id: " + user.getUser_id());
+    }
+
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 //    /**
@@ -187,4 +230,6 @@ public class AdminControllerEG extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>   
+
+    
 }

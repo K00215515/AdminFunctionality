@@ -110,8 +110,8 @@ public class ShowControllerEG extends HttpServlet {
                     
                     session.setAttribute("shows", n);
 //                    AdminEG u = new AdminEG();
-//                    System.out.println("get show details " + n.getUserid());
-//                    u = u.getUserDetails(u.getUserid());
+//                    System.out.println("get show details " + n.getUser_id());
+//                    u = u.getUserDetails(u.getUser_id());
 //                    if(u!=null) {
 //                        System.out.println("shows" + u.getUsername());
 //                        session.setAttribute("showUser ", u);
@@ -152,9 +152,11 @@ public class ShowControllerEG extends HttpServlet {
         String show_title = request.getParameter("show_title");
         String show_description = request.getParameter("show_description");
         String show_image = request.getParameter("show_image");
+        
         System.out.println("show_id: " + shows.getShow_id());
-        ShowsEG s = new ShowsEG(show_title, show_description, show_image);
-        s = s.updateShow();
+        ShowsEG s = new ShowsEG(shows.getShow_id(), show_title, show_description, show_image);
+        
+        s = s.update();
         session.setAttribute("shows", shows);
         System.out.println("show_id:" + shows.getShow_id());
     }   

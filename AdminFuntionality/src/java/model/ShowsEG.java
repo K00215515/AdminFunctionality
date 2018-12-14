@@ -180,9 +180,9 @@ public class ShowsEG implements Serializable{
         return allshows;
     }
 
-    public ShowsEG updateShow() {
+    public ShowsEG update() {
         Connection connection = DatabaseUtilityClass.getConnection();
-        String sql = "UPDATE shows SET show_title = ?, show_description = ?, show_image = ? WHERE show_id = ?;";
+        String sql = "UPDATE Shows SET show_title = ?, show_description = ?, show_image = ? WHERE show_id = ?;";
         
         try{
             PreparedStatement ps = connection.prepareStatement(sql);

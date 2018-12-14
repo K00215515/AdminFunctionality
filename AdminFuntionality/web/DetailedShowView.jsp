@@ -44,7 +44,6 @@
                 <input type="text" name="show_description" id="show_description" value="${shows.show_description}"/>
                 <br>
                 <label>Show Image</label>
-                
                 <input type="text" name="show_image" id="show_image" value="${shows.show_image}"/>
                 <br>
                 <input type="submit" name="menu" value="Update" />

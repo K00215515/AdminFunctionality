@@ -51,10 +51,10 @@
                 <input type="email" name="email" id="email" value="${users.email}"/>
                 <br>
                 <label>First Name</label>
-                <input type="text" name="F_name" id="F_name" value="${users.F_name}"/>
+                <input type="text" name="F_name" id="f_name" value="${users.f_name}"/>
                 <br>
                 <label>Last Name</label>
-                    <input type="text" name="L_name" id="L_name" value="${users.L_name}"/>
+                    <input type="text" name="L_name" id="l_name" value="${users.l_name}"/>
                 <br>
                 <input type="submit" name="menu" value="SignUp" />
 

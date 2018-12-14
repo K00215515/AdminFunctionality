@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="model.UserEG"%>
+<%@page import="model.AdminEG"%>
 
 <!DOCTYPE html>
 <html>
@@ -15,24 +15,21 @@
         <link href="${pageContext.request.contextPath}/css/layout.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/colour.css" rel="stylesheet" type="text/css">
-        <title>Detailed Show View</title>
+        <title>Detailed User View</title>
     </head>
     <body>
         <header class="main-header">
         <div class="Logo">
-            <img src="images/litGalleryLogo.png" alt="Logo"/ height="800px" width="300px">
+            <img src="images/litGalleryLogo.png" alt="Logo"height="800px" width="300px"/>
                 </div>
                 <div class="nav">
                     <label for="toggle">&#9776;</label>
                     <input type="checkbox" id="toggle"/>
                 <div class="menu">
                     <a href="Home.jsp">Home</a>
-<!--                        <a href="Gallery.html">Gallery</a>-->
                     <a href="Shows.jsp">Shows</a>
                     <a href="Admin.jsp">Admin</a>
-<!--                        <a href="Profile.html">Profile</a> -->
-<!--                    <a href="SignUp.jsp">SignIn</a> 
-                    <a href="Logout.jsp">Logout</a> -->
+
                 </div>
             </div>
         </header> 
@@ -49,11 +46,11 @@
                 <label>Email</label>
                 <input type="email" name="email" id="email" value="${users.email}"/>
                 <br>
-                <label>F_name</label>
-                <input type="text" name="username" id="username" value="${users.F_name}"/>
+                <label>First name</label>
+                <input type="text" name="F_name" id="f_name" value="${users.f_name}"/>
                 <br>
-                <label>L_name</label>
-                <input type="text" name="username" id="username" value="${users.F_name}"/>
+                <label>Last name</label>
+                <input type="text" name="L_name" id="l_name" value="${users.l_name}"/>
                 <br>
                 <input type="submit" name="menu" value="Update" />
                 <input type="submit" name="menu" value="Delete" />
