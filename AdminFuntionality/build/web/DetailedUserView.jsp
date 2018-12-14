@@ -1,7 +1,7 @@
 <%-- 
     Document   : DetailedUserView
     Created on : 12-Dec-2018, 10:40:36
-    Author     : K00215515
+    Author     : K00215515 Evan Grimes
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
