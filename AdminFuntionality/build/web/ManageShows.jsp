@@ -1,6 +1,6 @@
 <%-- 
-    Document   : AllShows
-    Created on : 12-Dec-2018, 11:19:42
+    Document   : ManageShows
+    Created on : 14-Jan-2019, 12:22:52
     Author     : K00215515 Evan Grimes
 --%>
 
@@ -14,7 +14,7 @@
         <link href="${pageContext.request.contextPath}/css/layout.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/colour.css" rel="stylesheet" type="text/css">
-        <title>All Shows</title>
+        <title>Manage Shows</title>
     </head>
     <body>
     <header class="main-header">
@@ -33,25 +33,24 @@
             </div>
         </header>
         <div class="logIn">
-            <form action="ShowControllerEG" method="post" class="register-form" name="shows">
+            <form action="ShowControllerEG" method="post" class="register-form" name="show">
 
-                <input type="submit" name="home" value="List Shows" />
+                <input type="submit" name="home" value="List Users" />
             </form>
         <table id="m">
                     <tr>             
-                        <td>Image</td>
-                        <td>Show title</td>
+                        <td>Shows</td>
                     </tr>
                     <c:forEach var="shows" items="${allshows}">                  
-                        <tr>                                            
+                        <tr>    
                             <td ><img src="${pageContext.request.contextPath}/images/${shows.show_image}" alt="shows" width="40" height="40"></td>
                             <td ><a href="ShowControllerEG?menu=getShowView&show_id=${shows.show_id}">${shows.show_title}</a> </td>
-<!--                            <td ><a href="ShowControllerEG?menu=deleteShow&show_id=${shows.show_id}">Delete</a> </td>
-                            <td ><a href="ShowControllerEG?menu=updateShow&show_id=${shows.show_id}">Update</a> </td>-->
+                            <td ><a href="ShowControllerEG?menu=retireShow&show_id=${shows.show_id}">Retire</a> </td>
+                            <td ><a href="ShowControllerEG?menu=liveeShow&show_id=${shows.show_id}">Live</a> </td>-->
                          </tr>
                     </c:forEach>
             </table>
         </div>
-    </body>
-    
+    </body> 
 </html>
+

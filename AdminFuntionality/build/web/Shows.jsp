@@ -46,8 +46,8 @@
                             
                             <td><img src="${pageContext.request.contextPath}/images/${shows.show_image}" alt="shows" width="80" height="80"></td>
                             <td><a href="ShowControllerEG?menu=getShowView&noticeId=${shows.show_id}">${shows.show_title}</a> </td>
-                            <td><a href="ShowControllerEG?menu=deleteShow&noticeId=${shows.show_id}">Delete</a> </td>
-                            <td><a href="ShowControllerEG?menu=updateShow&noticeId=${shows.show_id}">Update</a> </td>
+<!--                            <td><a href="ShowControllerEG?menu=deleteShow&noticeId=${shows.show_id}">Delete</a> </td>
+                            <td><a href="ShowControllerEG?menu=updateShow&noticeId=${shows.show_id}">Update</a> </td>-->
                          </tr>
                     </c:forEach>
                     </table>

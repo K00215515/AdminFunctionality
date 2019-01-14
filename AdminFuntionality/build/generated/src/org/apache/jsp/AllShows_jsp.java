@@ -82,20 +82,21 @@ public final class AllShows_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <input type=\"checkbox\" id=\"toggle\"/>\n");
       out.write("                <div class=\"menu\">\n");
       out.write("                    <a href=\"Home.jsp\">Home</a>\n");
-      out.write("<!--                        <a href=\"Gallery.html\">Gallery</a>-->\n");
       out.write("                    <a href=\"Shows.jsp\">Shows</a>\n");
       out.write("                    <a href=\"Admin.jsp\">Admin</a>\n");
-      out.write("<!--                        <a href=\"Profile.html\">Profile</a> -->\n");
-      out.write("<!--                    <a href=\"SignUp.jsp\">SignIn</a> \n");
-      out.write("                    <a href=\"Logout.jsp\">Logout</a> -->\n");
+      out.write("\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </header>\n");
       out.write("        <div class=\"logIn\">\n");
+      out.write("            <form action=\"ShowControllerEG\" method=\"post\" class=\"register-form\" name=\"shows\">\n");
+      out.write("\n");
+      out.write("                <input type=\"submit\" name=\"home\" value=\"List Shows\" />\n");
+      out.write("            </form>\n");
       out.write("        <table id=\"m\">\n");
       out.write("                    <tr>             \n");
-      out.write("                        <td>image</td>\n");
-      out.write("                        <td>show title</td>\n");
+      out.write("                        <td>Image</td>\n");
+      out.write("                        <td>Show title</td>\n");
       out.write("                    </tr>\n");
       out.write("                    ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
@@ -140,7 +141,7 @@ public final class AllShows_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("/images/");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" alt=\"shows\" width=\"80\" height=\"80\"></td>\n");
+          out.write("\" alt=\"shows\" width=\"40\" height=\"40\"></td>\n");
           out.write("                            <td ><a href=\"ShowControllerEG?menu=getShowView&show_id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write('"');

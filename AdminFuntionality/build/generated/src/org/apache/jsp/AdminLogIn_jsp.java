@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import model.AdminEG;
 
-public final class LogIn_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class AdminLogIn_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -42,8 +42,6 @@ public final class LogIn_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write(' ');
-      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -64,7 +62,7 @@ public final class LogIn_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/css/colour.css\" rel=\"stylesheet\" type=\"text/css\">\n");
       out.write("        \n");
-      out.write("        <title>Log In</title>\n");
+      out.write("        <title>Admin Log In</title>\n");
       out.write("    </head>\n");
       out.write("    <body>   \n");
       out.write("           <header class=\"main-header\">\n");
@@ -87,18 +85,14 @@ public final class LogIn_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </header>  \n");
       out.write("            <div class=\"logIn\">\n");
       out.write("                <form action=\"AdminControllerEG\" method=\"post\" class=\"register-form\" name=\"Login\">\n");
-      out.write("                    <h2>Log In</h2><br>\n");
+      out.write("                    <h2>Admin Log In</h2><br>\n");
       out.write("                    <label>User name</label>\n");
       out.write("                    <input type=\"text\" name=\"username\" id=\"username\"/>\n");
       out.write("                    <br>\n");
       out.write("                    <label>Password</label>\n");
       out.write("                    <input type=\"password\" name=\"password\" id=\"password\"/>\n");
       out.write("                    <br>\n");
-      out.write("                    <input type=\"submit\" name=\"menu\" value=\"LogIn\" />  \n");
-      out.write("                    <br>\n");
-      out.write("                \n");
-      out.write("                    <a href=\"AdminLogIn.jsp\">Admin LogIn</a> ");
-      out.write("\n");
+      out.write("                    <input type=\"submit\" name=\"menu\" value=\"LogIn\" />\n");
       out.write("\n");
       out.write("                </form>\n");
       out.write("            </div>\n");

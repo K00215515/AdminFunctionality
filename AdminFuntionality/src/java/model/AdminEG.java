@@ -112,7 +112,7 @@ public class AdminEG implements Serializable{
         Connection connection = DatabaseUtilityClass.getConnection();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
-        String query = "Select * from Users where username = ? AND password = ?";
+        String query = "Select * from Users where username = ? AND password = ? AND account_type = admin";
         
         try{
             ps = connection.prepareStatement(query);

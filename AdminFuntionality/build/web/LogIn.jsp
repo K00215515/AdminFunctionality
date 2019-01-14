@@ -47,7 +47,10 @@
                     <label>Password</label>
                     <input type="password" name="password" id="password"/>
                     <br>
-                    <input type="submit" name="menu" value="LogIn" />
+                    <input type="submit" name="menu" value="LogIn" />  
+                    <br>
+                
+                    <a href="AdminLogIn.jsp">Admin LogIn</a> <%--make it to a button --%>
 
                 </form>
             </div>

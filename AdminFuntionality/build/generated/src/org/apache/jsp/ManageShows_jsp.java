@@ -3,10 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import model.AdminEG;
 import model.ShowsEG;
 
-public final class Admin_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class ManageShows_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -58,8 +57,6 @@ public final class Admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -73,7 +70,7 @@ public final class Admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/css/colour.css\" rel=\"stylesheet\" type=\"text/css\">\n");
-      out.write("        <title>Admin</title>\n");
+      out.write("        <title>Manage Shows</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("    <header class=\"main-header\">\n");
@@ -85,60 +82,30 @@ public final class Admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <input type=\"checkbox\" id=\"toggle\"/>\n");
       out.write("                <div class=\"menu\">\n");
       out.write("                    <a href=\"Home.jsp\">Home</a>\n");
-      out.write("<!--                        <a href=\"Gallery.html\">Gallery</a>-->\n");
       out.write("                    <a href=\"Shows.jsp\">Shows</a>\n");
       out.write("                    <a href=\"Admin.jsp\">Admin</a>\n");
-      out.write("<!--                        <a href=\"Profile.html\">Profile</a> -->\n");
-      out.write("<!--                    <a href=\"SignUp.jsp\">SignIn</a> \n");
-      out.write("-->                    <a href=\"Logout.jsp\">Logout</a> \n");
+      out.write("\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
-      out.write("        </header> \n");
+      out.write("        </header>\n");
       out.write("        <div class=\"logIn\">\n");
-      out.write("                <form action=\"AdminControllerEG\" class=\"manageusers-page\">   ");
-      out.write("                                 \n");
-      out.write("                    <input type=\"submit\" name=\"menu\" value=\"Manage Users\" />\n");
-      out.write("                    <input type=\"submit\" name=\"menu\" value=\"logout\" />\n");
-      out.write("                </form>\n");
-      out.write("                <form action=\"ShowControllerEG\" class=\"shows-page\">\n");
-      out.write("                    <input type=\"submit\" name=\"menu\" value=\"Manage Shows\"/>\n");
-      out.write("                   <input type=\"submit\" name=\"menu\" value=\"Add Show\" />  \n");
-      out.write("                   <input type=\"submit\" name=\"menu\" value=\"All Shows\"/>\n");
-      out.write("                </form>\n");
-      out.write("            <table id=\"m\">\n");
+      out.write("            <form action=\"ShowControllerEG\" method=\"post\" class=\"register-form\" name=\"show\">\n");
+      out.write("\n");
+      out.write("                <input type=\"submit\" name=\"home\" value=\"List Users\" />\n");
+      out.write("            </form>\n");
+      out.write("        <table id=\"m\">\n");
       out.write("                    <tr>             \n");
-      out.write("                        <td>image</td>\n");
-      out.write("                        <td>show title</td>\n");
+      out.write("                        <td>Shows</td>\n");
       out.write("                    </tr>\n");
       out.write("                    ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
       out.write("            </table>\n");
-      out.write("<!--                <table id=\"m\">\n");
-      out.write("                    <tr>             \n");
-      out.write("                        <td>username</td>\n");
-      out.write("                    </tr>\n");
-      out.write("              <!--\n");
-      out.write("                        <tr>                                            \n");
-      out.write("                            <td ><a href=\"UserControllerEG?menu=getUserView&user_id=");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${users.userid}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write('"');
-      out.write('>');
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${users.username}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("</a> </td>\n");
-      out.write("                            <td ><a href=\"UserControllerEG?menu=deleteUsers&user_id=");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${users.userid}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\">Delete</a> </td>\n");
-      out.write("                            <td ><a href=\"UserControllerEG?menu=updateUsers&user_id=");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${users.userid}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\">Update</a> </td>\n");
-      out.write("                         </tr>\n");
-      out.write("\n");
-      out.write("                    </table>-->\n");
       out.write("        </div>\n");
-      out.write("    </body>\n");
-      out.write("</html>");
+      out.write("    </body> \n");
+      out.write("</html>\n");
+      out.write("\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -168,24 +135,24 @@ public final class Admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("                  \n");
-          out.write("                        <tr>                                            \n");
+          out.write("                        <tr>    \n");
           out.write("                            <td ><img src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("/images/");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" alt=\"shows\" width=\"80\" height=\"80\"></td>\n");
+          out.write("\" alt=\"shows\" width=\"40\" height=\"40\"></td>\n");
           out.write("                            <td ><a href=\"ShowControllerEG?menu=getShowView&show_id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write('"');
           out.write('>');
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_title}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</a> </td>\n");
-          out.write("<!--                            <td ><a href=\"ShowControllerEG?menu=deleteShow&show_id=");
+          out.write("                            <td ><a href=\"ShowControllerEG?menu=retireShow&show_id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\">delete</a> </td>\n");
-          out.write("                            <td ><a href=\"ShowControllerEG?menu=updateShow&show_id=");
+          out.write("\">Retire</a> </td>\n");
+          out.write("                            <td ><a href=\"ShowControllerEG?menu=liveeShow&show_id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\">update</a> </td>-->\n");
+          out.write("\">Live</a> </td>-->\n");
           out.write("                         </tr>\n");
           out.write("                    ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();

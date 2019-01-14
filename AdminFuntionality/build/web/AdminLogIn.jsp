@@ -1,13 +1,12 @@
- <%-- 
-    Document   : LogIn
-    Created on : 29-Nov-2018, 14:50:45
+<%-- 
+    Document   : AdminLogIn
+    Created on : 22-Dec-2018, 14:57:55
     Author     : K00215515 Evan Grimes
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="model.AdminEG"%>
-
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +16,7 @@
         <link href="${pageContext.request.contextPath}/css/font.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/colour.css" rel="stylesheet" type="text/css">
         
-        <title>Log In</title>
+        <title>Admin Log In</title>
     </head>
     <body>   
            <header class="main-header">
@@ -40,18 +39,14 @@
             </header>  
             <div class="logIn">
                 <form action="AdminControllerEG" method="post" class="register-form" name="Login">
-                    <h2>Log In</h2><br>
+                    <h2>Admin Log In</h2><br>
                     <label>User name</label>
                     <input type="text" name="username" id="username"/>
                     <br>
                     <label>Password</label>
                     <input type="password" name="password" id="password"/>
                     <br>
-                    <input type="submit" name="menu" value="LogIn" />  
-                    <br>
-                
-                    <a href="AdminLogIn.jsp">Admin LogIn</a> <%--make it to a button --%>
-
+                    <input type="submit" name="menu" value="LogIn" />
                 </form>
             </div>
         <script

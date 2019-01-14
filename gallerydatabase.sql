@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2018 at 11:14 AM
+-- Generation Time: Jan 14, 2019 at 01:35 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -110,12 +110,11 @@ CREATE TABLE `shows` (
 --
 
 INSERT INTO `shows` (`show_id`, `date_live`, `show_title`, `show_description`, `show_image`, `duration`) VALUES
-(1, '2018-12-11 11:15:39', 'Interactive Design', 'Interactive Assignments', 'interactive.jpg', '2018-12-11 11:15:39'),
+(1, '2018-12-11 11:15:39', 'Interactive Design', 'Interactive Design Assignments', 'interactive.jpg', '2018-12-11 11:15:39'),
 (2, '2018-12-11 12:50:32', 'Software Development', 'software', 'b', '2018-12-11 12:50:32'),
-(3, '2018-12-12 09:50:56', 'Broadcasting', 'broadcasting', 'broadcast.png', '2018-12-12 09:50:56'),
-(4, '2018-12-12 14:40:59', 'Business', 'business', 'c', '2018-12-12 14:40:59'),
-(5, '2018-12-12 15:23:40', 'Art', 'art show', 'art', '2018-12-12 15:23:40'),
-(12, '2018-12-13 11:34:42', 'Creative Multimedia', 'multimedia ', 'y', '2018-12-13 11:34:42'),
+(3, '2018-12-12 09:50:56', 'Broadcasting & Sound', 'broadcasting', 'broadcast.png', '2018-12-12 09:50:56'),
+(5, '2018-12-12 15:23:40', 'Art', 'art show', 'art.jpg', '2018-12-12 15:23:40'),
+(12, '2018-12-13 11:34:42', 'Creative Multimedia', 'multimedia ', 'interactive.jpg', '2018-12-13 11:34:42'),
 (17, '2018-12-13 13:43:37', 'Sound', 'sound', 'sound', '2018-12-13 13:43:37');
 
 -- --------------------------------------------------------
@@ -144,13 +143,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `F_name`, `L_name`, `email`, `username`, `profile_pic`, `password`, `date_joined`, `account_type`, `bio`, `course_id`, `approved_username`) VALUES
-(2, 'John', 'Smith', 'johnsmith@gmail.com', 'JohnSmith', NULL, 'john', '2018-12-10 10:32:33', 'admin', NULL, NULL, 0),
+(2, 'John', 'Smith', 'johnsmith1@gmail.com', 'JohnSmith', NULL, 'john', '2018-12-10 10:32:33', 'admin', NULL, NULL, 0),
 (3, 'Jade', 'J', 'jade@hotmail.com', 'jade', NULL, 'jade', '2018-12-10 13:14:23', NULL, NULL, NULL, 0),
 (4, 'Bob', 'Jones', 'K00213124@student.lit.ie', 'K00213124', NULL, 'bob', '2018-12-11 09:16:33', NULL, NULL, NULL, 0),
 (5, 'James', 'Harvey', 'K00192094@student.lit.ie', 'K00192094', NULL, 'james', '2018-12-11 09:18:53', NULL, NULL, NULL, 0),
 (6, 'Phil', 'Hardy', 'phil@gmail.com', 'Phil', NULL, 'phil', '2018-12-11 11:28:17', NULL, NULL, NULL, 0),
 (7, 'John', 'Philips', 'johnPhilips@gmail.com', 'John', NULL, 'john', '2018-12-11 15:32:06', NULL, NULL, NULL, 0),
-(8, 'v', 'v', 'v@gmail.com', 'v', NULL, 'v', '2018-12-12 13:03:41', NULL, NULL, NULL, 0),
+(8, 'v', 'v', 'v@gmail.com', 'victor', NULL, 'v', '2018-12-12 13:03:41', NULL, NULL, NULL, 0),
 (9, 'James', 'Nolan', 'james@gmail.com', 'JamesNolan', NULL, 'james', '2018-12-13 13:57:38', NULL, NULL, NULL, 0);
 
 --
@@ -240,7 +239,7 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT for table `shows`
 --
 ALTER TABLE `shows`
-  MODIFY `show_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `show_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
