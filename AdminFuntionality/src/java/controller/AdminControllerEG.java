@@ -21,6 +21,7 @@ import model.AdminEG;
  *
  * @author K00215515 Evan Grimes 10/12/2018
  */
+
 @WebServlet(name = "AdminControllerEG", urlPatterns = {"/AdminControllerEG"})
 public class AdminControllerEG extends HttpServlet {
 
@@ -66,6 +67,17 @@ public class AdminControllerEG extends HttpServlet {
                 boolean validLogin = ProcessLogin(request, session);
                 if (!validLogin) {
                     String message = "invalid logon details.. try again";
+//                    AdminEG a = new AdminEG();
+//                    boolean admin = false;
+//                    admin = UserLocalServiceUtil.hasRoleUser(admin, a.getUser_id());
+//                    if(admin){
+//                        gotoPage("/Admin.jsp", request, response);
+//                    }
+//                    else{
+//                        gotoPage("/Home.jsp", request, response);
+//                    }
+//                    String account_type = request.getParameter("account_type");
+//                    if(account_type = "admin")
                     session.setAttribute("message", message);
                     gotoPage("/LogIn.jsp", request, response);
                 } else {
@@ -145,8 +157,9 @@ public class AdminControllerEG extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        AdminEG admin = new AdminEG(username, password);
-        admin.Login(username, password);
+        String account_type = request.getParameter("account_type");
+        AdminEG admin = new AdminEG(username, password, account_type); //account_type
+        admin.Login(username, password, account_type);
         session.setAttribute("users", admin);
        
         if (admin.getUser_id()!=0) {
@@ -161,8 +174,9 @@ public class AdminControllerEG extends HttpServlet {
         String email = request.getParameter("email");
         String f_name = request.getParameter("F_name");
         String L_name = request.getParameter("L_name");
+        String account_type = request.getParameter("account_type");
         
-        AdminEG admin = new AdminEG(username, password, email, f_name, L_name);
+        AdminEG admin = new AdminEG(username, password, email, f_name, L_name, account_type);
         admin = admin.saveToDatabase();
 
         session.setAttribute("users", admin);
@@ -174,9 +188,10 @@ public class AdminControllerEG extends HttpServlet {
         String email = request.getParameter("email");
         String f_name = request.getParameter("F_name");
         String L_name = request.getParameter("L_name");
+        String account_type = request.getParameter("account_type");
         
         System.out.println("user_id: " + users.getUser_id());
-        AdminEG u = new AdminEG(users.getUser_id(), username, password, email, f_name, L_name);
+        AdminEG u = new AdminEG(users.getUser_id(), username, password, email, f_name, L_name, account_type);
         
         u = u.updateUser();
         session.setAttribute("users", users);
@@ -189,7 +204,7 @@ public class AdminControllerEG extends HttpServlet {
         session.setAttribute("users", user);
         System.out.println("user_id: " + user.getUser_id());
     }
-
+    
     
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -230,6 +245,24 @@ public class AdminControllerEG extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>   
+
+//    private static class UserLocalServiceUtil {
+//
+//        private static boolean hasRoleUser(boolean admin, int user_id, HttpServletRequest request,
+//            HttpServletResponse response) throws ServletException, IOException {
+//            if(admin){
+//                
+//                    gotoPage("/Admin.jsp", request, response);
+//                }
+//                else{
+//                    gotoPage("/Home.jsp", request, response);
+//                }
+//            return false;
+//        }
+//
+//        public UserLocalServiceUtil() {
+//        }
+//    }
 
     
 }

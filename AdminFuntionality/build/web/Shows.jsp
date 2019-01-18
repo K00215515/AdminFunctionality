@@ -26,13 +26,12 @@
                     <label for="toggle">&#9776;</label>
                     <input type="checkbox" id="toggle"/>
                     <div class="menu">
-                        <a href="Home.jsp">Home</a>
-<!--                        <a href="Gallery.html">Gallery</a>-->
-                        <a href="Shows.jsp">Shows</a>
-                        <a href="Admin.jsp">Admin</a>
-<!--                        <a href="Profile.html">Profile</a>-->
-                        <a href="SignUp.jsp">Sign Up</a>
-                        <a href="LogIn.jsp">Log In</a> 
+                        <a href="NavigationControllerEG?menu=home">Home</a>
+                        <a href="NavigationControllerEG?menu=gallery">Gallery</a>
+                        <a href="NavigationControllerEG?menu=shows">Shows</a>
+                        <a href="NavigationControllerEG?menu=admin">Admin</a>
+                        <a href="NavigationControllerEG?menu=signUp">SignUp</a>
+                        <a href="NavigationControllerEG?menu=logIn">LogIn</a>
                     </div>
                 </div>
             </header> 
@@ -45,9 +44,9 @@
                         <tr>                                            
                             
                             <td><img src="${pageContext.request.contextPath}/images/${shows.show_image}" alt="shows" width="80" height="80"></td>
-                            <td><a href="ShowControllerEG?menu=getShowView&noticeId=${shows.show_id}">${shows.show_title}</a> </td>
-<!--                            <td><a href="ShowControllerEG?menu=deleteShow&noticeId=${shows.show_id}">Delete</a> </td>
-                            <td><a href="ShowControllerEG?menu=updateShow&noticeId=${shows.show_id}">Update</a> </td>-->
+                            <td><a href="ShowControllerEG?menu=getShowView&show_id=${shows.show_id}">${shows.show_title}</a> </td>
+<!--                            <td><a href="ShowControllerEG?menu=deleteShow&show_id=${shows.show_id}">Delete</a> </td>
+                            <td><a href="ShowControllerEG?menu=updateShow&show_id=${shows.show_id}">Update</a> </td>-->
                          </tr>
                     </c:forEach>
                     </table>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : AddShow
-    Created on : 10-Dec-2018, 16:03:05
+    Document   : ManagePieces
+    Created on : 18-Jan-2019, 14:49:02
     Author     : K00215515 Evan Grimes
 --%>
 
@@ -14,7 +14,7 @@
         <link href="${pageContext.request.contextPath}/css/layout.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/colour.css" rel="stylesheet" type="text/css">
-        <title>Add Show</title>
+        <title>Manage Pieces</title>
     </head>
     <body>
     <header class="main-header">
@@ -34,16 +34,8 @@
         </header> 
         <div class="logIn">
             <form action="ShowControllerEG" method="post" class="register-form" name="shows">
-                <label>Show Name</label>
-                <input type="text" name="show_title" id="show_title" value="${shows.show_title}"/>
-                <br>
-                <label>Show Description</label>
-                <input type="text" name="show_description" id="show_description" value="${shows.show_description}"/>
-                <br>
-                <label>Show Image</label>
-                <input type="text" name="show_image" id="show_image" value="${shows.show_image}"/><br>
-                <input type="submit" name="home" value="List Shows" />
-                <input type="submit" name="menu" value="SaveShow" />
+                <input type="submit" name="menu" value="Order Piece" />
+                <input type="submit" name="menu" value="Add Piece" />
             </form>
         </div>
     </body>

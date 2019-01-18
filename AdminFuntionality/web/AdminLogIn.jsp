@@ -27,13 +27,12 @@
                     <label for="toggle">&#9776;</label>
                     <input type="checkbox" id="toggle"/>
                     <div class="menu">
-
-                        <a href="Home.jsp">Home</a>
-<!--                        <a href="Gallery.html">Gallery</a>-->
-                        <a href="Shows.jsp">Shows</a>
-<!--                        <a href="Profile.html">Profile</a> -->
-                        <a href="SignUp.jsp">SignIn</a> 
-<!--                        <a href="Logout.jsp">Logout</a> -->
+                        <a href="NavigationControllerEG?menu=home">Home</a>
+                        <a href="NavigationControllerEG?menu=gallery">Gallery</a>
+                        <a href="NavigationControllerEG?menu=shows">Shows</a>
+                        <a href="NavigationControllerEG?menu=admin">Admin</a>
+                        <a href="NavigationControllerEG?menu=signUp">SignUp</a>
+                        <a href="NavigationControllerEG?menu=logout">Logout</a>
                     </div>
                 </div>
             </header>  

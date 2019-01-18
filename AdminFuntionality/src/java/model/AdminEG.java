@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,37 +24,42 @@ public class AdminEG implements Serializable{
     private String email;
     private String f_name;
     private String l_name;
+    private String account_type;
     private int userid;
     
     public AdminEG(){
     }
-    public AdminEG(int user_id, String username, String password, String email, String f_name, String l_name) {
+    public AdminEG(int user_id, String username, String password, String email, String f_name, String l_name, String account_type) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.f_name = f_name;
         this.l_name = l_name;
+        this.account_type = account_type;
     }
-    public AdminEG(int user_id, String username, String password, String email, String f_name, String l_name, int userid) {
+    public AdminEG(int user_id, String username, String password, String email, String f_name, String l_name, String account_type, int userid) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.f_name = f_name;
         this.l_name = l_name;
+        this.account_type = account_type;
         this.userid = userid;
     }
-    public AdminEG(String username, String password, String email, String f_name, String l_name){
+    public AdminEG(String username, String password, String email, String f_name, String l_name, String account_type){
         this.username = username;
         this.password = password;
         this.email = email;
         this.f_name = f_name;
         this.l_name = l_name;
+        this.account_type = account_type;
     }
-    public AdminEG(String username, String password) {
+    public AdminEG(String username, String password, String account_type) {
         this.username = username;
         this.password = password;
+        this.account_type = account_type;
     }
     
     
@@ -84,6 +90,10 @@ public class AdminEG implements Serializable{
         return l_name;
     }
     
+    public String getAccount_type(){
+        return account_type;
+    }
+    
     public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
@@ -108,7 +118,11 @@ public class AdminEG implements Serializable{
         this.l_name = l_name;
     }
     
-    public AdminEG Login(String username, String password) {
+    public void setAccount_type(String account_type){
+        this.account_type = account_type;
+    }
+    
+    public AdminEG Login(String username, String password, String account_type) {
         Connection connection = DatabaseUtilityClass.getConnection();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
@@ -119,7 +133,6 @@ public class AdminEG implements Serializable{
             ps.setString(1, username);
             ps.setString(2, password);
             resultSet = ps.executeQuery();
-            
             while(resultSet.next()){
                 this.user_id = resultSet.getInt("user_id");
                 this.username = resultSet.getString("username");
@@ -127,8 +140,8 @@ public class AdminEG implements Serializable{
                 this.email = resultSet.getString("email");
                 this.f_name = resultSet.getString("F_name");
                 this.l_name = resultSet.getString("L_name");
+                this.account_type = resultSet.getString("account_type");
             }
-            
             connection.close();
             
         }catch(SQLException ex){

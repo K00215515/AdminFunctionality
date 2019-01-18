@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2019 at 01:35 PM
+-- Generation Time: Jan 18, 2019 at 04:43 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -111,11 +111,11 @@ CREATE TABLE `shows` (
 
 INSERT INTO `shows` (`show_id`, `date_live`, `show_title`, `show_description`, `show_image`, `duration`) VALUES
 (1, '2018-12-11 11:15:39', 'Interactive Design', 'Interactive Design Assignments', 'interactive.jpg', '2018-12-11 11:15:39'),
-(2, '2018-12-11 12:50:32', 'Software Development', 'software', 'b', '2018-12-11 12:50:32'),
-(3, '2018-12-12 09:50:56', 'Broadcasting & Sound', 'broadcasting', 'broadcast.png', '2018-12-12 09:50:56'),
+(2, '2018-12-11 12:50:32', 'Software Development', 'software', 'art.jpg', '2018-12-11 12:50:32'),
+(3, '2018-12-12 09:50:56', 'Broadcasting & Sound', 'broadcasting', 'interactive.jpg', '2018-12-12 09:50:56'),
 (5, '2018-12-12 15:23:40', 'Art', 'art show', 'art.jpg', '2018-12-12 15:23:40'),
 (12, '2018-12-13 11:34:42', 'Creative Multimedia', 'multimedia ', 'interactive.jpg', '2018-12-13 11:34:42'),
-(17, '2018-12-13 13:43:37', 'Sound', 'sound', 'sound', '2018-12-13 13:43:37');
+(17, '2018-12-13 13:43:37', 'Sound', 'sound', 'interactive.jpg', '2018-12-13 13:43:37');
 
 -- --------------------------------------------------------
 

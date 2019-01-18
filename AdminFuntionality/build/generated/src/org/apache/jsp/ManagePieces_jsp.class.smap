@@ -1,0 +1,19 @@
+SMAP
+ManagePieces_jsp.java
+JSP
+*S JSP
+*F
++ 0 ManagePieces.jsp
+ManagePieces.jsp
+*L
+5,9:55
+14,3:64,3
+17,33:73
+49:131,11
+50:142
+51:143,5
+52:148,6
+53,4:154,3
+57,3:166
+59,6:108
+*E

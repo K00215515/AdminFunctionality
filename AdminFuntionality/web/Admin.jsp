@@ -27,13 +27,12 @@
                     <label for="toggle">&#9776;</label>
                     <input type="checkbox" id="toggle"/>
                 <div class="menu">
-                    <a href="Home.jsp">Home</a>
-<!--                        <a href="Gallery.html">Gallery</a>-->
-                    <a href="Shows.jsp">Shows</a>
-                    <a href="Admin.jsp">Admin</a>
-<!--                        <a href="Profile.html">Profile</a> -->
-<!--                    <a href="SignUp.jsp">SignIn</a> 
--->                    <a href="Logout.jsp">Logout</a> 
+                    <a href="NavigationControllerEG?menu=home">Home</a>
+                    <a href="NavigationControllerEG?menu=gallery">Gallery</a>
+                    <a href="NavigationControllerEG?menu=shows">Shows</a>
+                    <a href="NavigationControllerEG?menu=admin">Admin</a>
+                    <a href="NavigationControllerEG?menu=profile">Profile</a>
+                    <a href="NavigationControllerEG?menu=logout">Logout</a>
                 </div>
             </div>
         </header> 
@@ -43,9 +42,11 @@
                     <input type="submit" name="menu" value="logout" />
                 </form>
                 <form action="ShowControllerEG" class="shows-page">
-                    <input type="submit" name="menu" value="Manage Shows"/>
+                   <input type="submit" name="menu" value="Manage Shows"/>
                    <input type="submit" name="menu" value="Add Show" />  
-                   <input type="submit" name="menu" value="All Shows"/>
+                   <input type="submit" name="menu" value="All Shows"/> 
+                   <input type="submit" name="menu" value="Add Piece"/>
+                   <input type="submit" name="menu" value="Manage Pieces"/>
                 </form>
             <table id="m">
                     <tr>             
@@ -56,8 +57,8 @@
                         <tr>                                            
                             <td ><img src="${pageContext.request.contextPath}/images/${shows.show_image}" alt="shows" width="80" height="80"></td>
                             <td ><a href="ShowControllerEG?menu=getShowView&show_id=${shows.show_id}">${shows.show_title}</a> </td>
-<!--                            <td ><a href="ShowControllerEG?menu=deleteShow&show_id=${shows.show_id}">delete</a> </td>
-                            <td ><a href="ShowControllerEG?menu=updateShow&show_id=${shows.show_id}">update</a> </td>-->
+<!--                            <td><a href="ShowControllerEG?menu=deleteShow&show_id=${shows.show_id}">delete</a></td>
+                            <td><a href="ShowControllerEG?menu=updateShow&show_id=${shows.show_id}">update</a></td>-->
                          </tr>
                     </c:forEach>
             </table>
