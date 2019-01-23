@@ -3,7 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import model.ShowsEG;
+import model.EntriesEG;
 
 public final class AddPiece_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -79,15 +79,24 @@ public final class AddPiece_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\n");
       out.write("        </header> \n");
       out.write("        <div class=\"logIn\">\n");
-      out.write("            <form action=\"ShowControllerEG\" method=\"post\" class=\"register-form\" name=\"shows\">\n");
-      out.write("\n");
-      out.write("                <label>Show Description</label>\n");
-      out.write("                <input type=\"text\" name=\"show_description\" id=\"show_description\" value=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_description}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("            <form action=\"EntryControllerEG\" method=\"post\" class=\"register-form\" name=\"pieces\">\n");
+      out.write("                \n");
+      out.write("                <label>Entry Title</label>\n");
+      out.write("                <input type=\"text\" name=\"entry_title\" id=\"entry_title\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pieces.entry_title}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\"/>\n");
       out.write("                <br>\n");
-      out.write("                <input type=\"submit\" name=\"home\" value=\"List Shows\" />\n");
-      out.write("                <input type=\"submit\" name=\"menu\" value=\"SaveShow\" />\n");
+      out.write("                <label>Entry Description</label>\n");
+      out.write("                <input type=\"text\" name=\"entry_description\" id=\"entry_description\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pieces.entry_description}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\"/>\n");
+      out.write("                <br>\n");
+      out.write("<!--                <label>Price</label>\n");
+      out.write("                <input type=\"text\" name=\"price\" id=\"price\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pieces.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\"/>-->\n");
+      out.write("                <input type=\"submit\" name=\"home\" value=\"ListPieces\" />\n");
+      out.write("                <input type=\"submit\" name=\"menu\" value=\"SavePiece\" />\n");
       out.write("            </form>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");

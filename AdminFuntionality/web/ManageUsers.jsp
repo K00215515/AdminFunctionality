@@ -26,11 +26,9 @@
                     <input type="checkbox" id="toggle"/>
                 <div class="menu">
                     <a href="NavigationControllerEG?menu=home">Home</a>
-<!--                    <a href="NavigationControllerEG?menu=gallery">Gallery</a>-->
                     <a href="NavigationControllerEG?menu=shows">Shows</a>
                     <a href="NavigationControllerEG?menu=admin">Admin</a>
-<!--                    <a href="NavigationControllerEG?menu=signUp">SignUp</a>
-                    <a href="NavigationControllerEG?menu=logout">Logout</a>-->
+
 
                 </div>
             </div>
@@ -46,9 +44,8 @@
                     </tr>
                     <c:forEach var="users" items="${allusers}">                  
                         <tr>                                                                        
-                            <td ><a href="AdminControllerEG?menu=getUserView&user_id=${users.user_id}">${users.username}</a> </td>
-                            <td ><a href="AdminControllerEG?menu=deleteUser&user_id=${users.user_id}">Delete</a> </td>
-                            <td ><a href="AdminControllerEG?menu=updateUser&user_id=${users.user_id}">Update</a> </td> <%-- or userControllerEG--%>
+                           <td ><a href="AdminControllerEG?menu=getUserView&user_id=${users.user_id}">${users.username}</a> </td>
+                           <td ><a href="AdminControllerEG?menu=deleteUser&user_id=${users.user_id}">Delete</a> </td>
                          </tr>
                     </c:forEach>
             </table>

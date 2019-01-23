@@ -52,8 +52,12 @@
                 <label>Last name</label>
                 <input type="text" name="L_name" id="l_name" value="${users.l_name}"/>
                 <br>
+                
+                <label>Account Type</label>
+                <input type="text" name="account_type" id="account_type" value="${users.account_type}"/>
+                <br>
                 <input type="submit" name="menu" value="Update" />
-                <input type="submit" name="menu" value="Delete" />
+<!--                <input type="submit" name="menu" value="Delete" />-->
                 </form>
             </div>
         </div>

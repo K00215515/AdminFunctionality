@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="model.ShowsEG"%>
+<%@page import="model.EntriesEG"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,10 +33,23 @@
             </div>
         </header> 
         <div class="logIn">
-            <form action="ShowControllerEG" method="post" class="register-form" name="shows">
-                <input type="submit" name="menu" value="Order Piece" />
-                <input type="submit" name="menu" value="Add Piece" />
+            <form action="EntryControllerEG" method="post" class="register-form" name="pieces">
+                <input type="submit" name="menu" value="AddPiece" />
+                <input type="submit" name="menu" value="OrderPiece" />
+<!--                <input type="submit" name="menu" value="List Pieces" />-->
             </form>
+            <table id="m">
+                <tr>
+                    <td>Pieces Title</td>
+                    <c:forEach var="pieces" items="${allpieces}">                  
+                        <tr>    
+                            <td><a href="EntryControllerEG?menu=getPieceView&entry_id=${pieces.entry_id}">${pieces.entry_title}</a></td>
+                         </tr>
+                    </c:forEach>
+
+                </tr>
+                
+            </table>
         </div>
     </body>
 </html>

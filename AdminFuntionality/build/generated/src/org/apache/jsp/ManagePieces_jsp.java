@@ -3,7 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import model.PieceEG;
+import model.EntriesEG;
 
 public final class ManagePieces_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -82,33 +82,31 @@ public final class ManagePieces_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                    <input type=\"checkbox\" id=\"toggle\"/>\n");
       out.write("                <div class=\"menu\">\n");
       out.write("                    <a href=\"NavigationControllerEG?menu=home\">Home</a>\n");
-      out.write("<!--                    <a href=\"NavigationControllerEG?menu=gallery\">Gallery</a>-->\n");
       out.write("                    <a href=\"NavigationControllerEG?menu=shows\">Shows</a>\n");
       out.write("                    <a href=\"NavigationControllerEG?menu=admin\">Admin</a>\n");
-      out.write("<!--                    <a href=\"NavigationControllerEG?menu=signUp\">SignUp</a>\n");
-      out.write("                    <a href=\"NavigationControllerEG?menu=logout\">Logout</a>-->\n");
       out.write("\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
-      out.write("        </header>\n");
+      out.write("        </header> \n");
       out.write("        <div class=\"logIn\">\n");
-      out.write("            <form action=\"PieceController\" method=\"post\" class=\"register-form\" name=\"piece\">\n");
-      out.write("\n");
-      out.write("                <input type=\"submit\" name=\"home\" value=\"Show Piece\" />\n");
-      out.write("                <input type=\"submit\" name=\"home\" value=\"Add Piece\" />\n");
-      out.write("                <input type=\"submit\" name=\"home\" value=\"Order Piece\" />\n");
+      out.write("            <form action=\"EntryControllerEG\" method=\"post\" class=\"register-form\" name=\"pieces\">\n");
+      out.write("                <input type=\"submit\" name=\"menu\" value=\"AddPiece\" />\n");
+      out.write("                <input type=\"submit\" name=\"menu\" value=\"OrderPiece\" />\n");
+      out.write("                <input type=\"submit\" name=\"menu\" value=\"List Pieces\" />\n");
       out.write("            </form>\n");
-      out.write("        <table id=\"m\">\n");
-      out.write("                    <tr>             \n");
-      out.write("                        <td>Shows</td>\n");
-      out.write("                    </tr>\n");
+      out.write("            <table id=\"m\">\n");
+      out.write("                <tr>\n");
+      out.write("                    <td>Pieces</td>\n");
       out.write("                    ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
+      out.write("\n");
+      out.write("                </tr>\n");
+      out.write("                \n");
       out.write("            </table>\n");
       out.write("        </div>\n");
-      out.write("    </body> \n");
+      out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -131,8 +129,8 @@ public final class ManagePieces_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
     _jspx_th_c_forEach_0.setParent(null);
-    _jspx_th_c_forEach_0.setVar("shows");
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${allshows}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setVar("pieces");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${allpieces}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
     try {
       int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
@@ -140,30 +138,12 @@ public final class ManagePieces_jsp extends org.apache.jasper.runtime.HttpJspBas
         do {
           out.write("                  \n");
           out.write("                        <tr>    \n");
-          out.write("                            <td><img src=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("/images/");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" alt=\"shows\" width=\"50\" height=\"50\"></td>\n");
-          out.write("                            <td><a href=\"ShowControllerEG?menu=getShowView&show_id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("                            <td><a href=\"EntryControllerEG?menu=getPieceView&entry_id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pieces.entry_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write('"');
           out.write('>');
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_title}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pieces.entry_title}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</a></td>\n");
-          out.write("                            <td><a href=\"ShowControllerEG?menu=retireShow&show_id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\">Retire</a></td>\n");
-          out.write("                            <td><a href=\"ShowControllerEG?menu=liveShow&show_id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\">Live</a></td>\n");
-          out.write("<!--                            <td><a href=\"ShowControllerEG?menu=deleteShow&show_id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\">Delete</a> </td>\n");
-          out.write("                            <td><a href=\"ShowControllerEG?menu=updateShow&show_id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\">Update</a> </td>-->\n");
-          out.write("                            \n");
           out.write("                         </tr>\n");
           out.write("                    ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();

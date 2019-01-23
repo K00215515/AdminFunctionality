@@ -29,16 +29,13 @@
                     <input type="checkbox" id="toggle"/>
                     <div class="menu">
                         <a href="NavigationControllerEG?menu=home">Home</a>
-<!--                        <a href="NavigationControllerEG?menu=gallery">Gallery</a>-->
                         <a href="NavigationControllerEG?menu=shows">Shows</a>
-<!--                        <a href="NavigationControllerEG?menu=admin">Admin</a>-->
                         <a href="NavigationControllerEG?menu=signUp">SignUp</a>
-<!--                        <a href="NavigationControllerEG?menu=logout">Logout</a>-->
                     </div>
                 </div>
             </header>  
             <div class="logIn">
-                <form action="AdminControllerEG" method="post" class="register-form" name="Login">
+                <form action="UserControllerEG" method="post" class="register-form" name="Login">
                     <h2>Log In</h2><br>
                     <label>User name</label>
                     <input type="text" name="username" id="username"/>
@@ -48,8 +45,8 @@
                     <br>
                     <input type="submit" name="menu" value="LogIn" />  
                     <br>
-                
-                    <a href="AdminLogIn.jsp">Admin LogIn</a> <%--make it to a button --%>
+                    <input type="submit" name="menu" value="Admin LogIn" />
+                    <!--<a href="AdminLogIn.jsp">Admin LogIn</a>-->
 
                 </form>
             </div>

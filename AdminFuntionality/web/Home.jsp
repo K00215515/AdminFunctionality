@@ -25,7 +25,7 @@
         <div class="logIn-page">
             <header class="main-header">
                 <div class="Logo">
-                <img src="images/litGalleryLogo.png" alt="Logo"/ height="800px" width="300px">
+                <img src="images/litGalleryLogo.png" alt="Logo"height="800px" width="300px"/>
                 </div>
                 <div class="nav">
                     <label for="toggle">&#9776;</label>

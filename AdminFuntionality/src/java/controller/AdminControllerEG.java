@@ -58,6 +58,7 @@ public class AdminControllerEG extends HttpServlet {
                 gotoPage("/Home.jsp", request, response);
                 break;
             case "logout":
+                System.out.println("Logged Out");
                 gotoPage("/Home.jsp", request, response);
                 break;
             case "Manage Users":
@@ -67,17 +68,20 @@ public class AdminControllerEG extends HttpServlet {
                 boolean validLogin = ProcessLogin(request, session);
                 if (!validLogin) {
                     String message = "invalid logon details.. try again";
-//                    AdminEG a = new AdminEG();
-//                    boolean admin = false;
+                    AdminEG a = new AdminEG();
+                    boolean admin = false;
+                    boolean student = false;
 //                    admin = UserLocalServiceUtil.hasRoleUser(admin, a.getUser_id());
-//                    if(admin){
-//                        gotoPage("/Admin.jsp", request, response);
-//                    }
-//                    else{
-//                        gotoPage("/Home.jsp", request, response);
-//                    }
-//                    String account_type = request.getParameter("account_type");
-//                    if(account_type = "admin")
+                    System.out.println(a.getAccount_type());
+                    if(admin == true){
+                        gotoPage("/Admin.jsp", request, response);
+                    }
+                    if(student == true){
+                        gotoPage("/Home.jsp", request, response);
+                    }
+                    else{
+                        gotoPage("/SignUp.jsp", request, response);
+                    }
                     session.setAttribute("message", message);
                     gotoPage("/LogIn.jsp", request, response);
                 } else {

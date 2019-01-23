@@ -206,12 +206,7 @@ public class AdminEG implements Serializable{
                 u.setEmail(resultSet.getString("email"));
                 u.setF_name(resultSet.getString("F_name"));
                 u.setL_name(resultSet.getString("L_name")); 
-//                this.user_id = resultSet.getInt("user_id");
-//                this.username = resultSet.getString("username");
-//                this.password = resultSet.getString("password");
-//                this.email = resultSet.getString("email");
-//                this.f_name = resultSet.getString("F_name");
-//                this.l_name = resultSet.getString("L_name");   
+                u.setAccount_type(resultSet.getString("account_type"));   
                 return u;
             } 
             connection.close();

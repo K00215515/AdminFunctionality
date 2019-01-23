@@ -124,7 +124,7 @@ public class ShowsEG implements Serializable{
         try {
             ps = connection.prepareStatement(query);
             ps.setInt(1, show_id);
-            
+            System.out.println("DETAILED PIECE VIEW");
             resultSet = ps.executeQuery();
             while (resultSet.next()) {
                 n = new ShowsEG();

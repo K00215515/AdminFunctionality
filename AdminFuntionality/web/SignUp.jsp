@@ -30,7 +30,6 @@
                         <a href="NavigationControllerEG?menu=home">Home</a>
                     <a href="NavigationControllerEG?menu=gallery">Gallery</a>
                     <a href="NavigationControllerEG?menu=shows">Shows</a>
-<!--                    <a href="NavigationControllerEG?menu=admin">Admin</a>-->
                     <a href="NavigationControllerEG?menu=logIn">LogIn</a>
                     </div>
                 </div>
@@ -53,6 +52,9 @@
                 <br>
                 <label>Last Name</label>
                     <input type="text" name="L_name" id="l_name" value="${users.l_name}"/>
+                <br>
+                <label>Account Type</label>
+                <input type="text" name="account_type" id="account_type" value="${users.account_type}"/>
                 <br>
                 <input type="submit" name="menu" value="SignUp" />
 

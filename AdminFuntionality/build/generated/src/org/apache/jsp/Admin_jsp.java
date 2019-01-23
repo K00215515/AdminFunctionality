@@ -103,8 +103,13 @@ public final class Admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                   <input type=\"submit\" name=\"menu\" value=\"Manage Shows\"/>\n");
       out.write("                   <input type=\"submit\" name=\"menu\" value=\"Add Show\" />  \n");
       out.write("                   <input type=\"submit\" name=\"menu\" value=\"All Shows\"/> \n");
-      out.write("                   <input type=\"submit\" name=\"menu\" value=\"Add Piece\"/>\n");
-      out.write("                   <input type=\"submit\" name=\"menu\" value=\"Manage Pieces\"/>\n");
+      out.write("<!--                   <input type=\"submit\" name=\"menu\" value=\"Add Piece\"/>\n");
+      out.write("                   <input type=\"submit\" name=\"menu\" value=\"Manage Pieces\"/>-->\n");
+      out.write("                </form>\n");
+      out.write("                <form action=\"EntryControllerEG\" class=\"entries-page\">\n");
+      out.write("                   <input type=\"submit\" name=\"menu\" value=\"AddPiece\"/>\n");
+      out.write("                   <input type=\"submit\" name=\"menu\" value=\"ManagePieces\"/>  \n");
+      out.write("                   <input type=\"submit\" name=\"menu\" value=\"AllPieces\"/>  \n");
       out.write("                </form>\n");
       out.write("            <table id=\"m\">\n");
       out.write("                    <tr>             \n");
@@ -170,7 +175,7 @@ public final class Admin_jsp extends org.apache.jasper.runtime.HttpJspBase
         do {
           out.write("                  \n");
           out.write("                        <tr>                                            \n");
-          out.write("                            <td ><img src=\"");
+          out.write("<!--                            <td ><img src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("/images/");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -180,7 +185,7 @@ public final class Admin_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write('"');
           out.write('>');
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_title}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</a> </td>\n");
+          out.write("</a> </td>-->\n");
           out.write("<!--                            <td><a href=\"ShowControllerEG?menu=deleteShow&show_id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">delete</a></td>\n");

@@ -55,22 +55,12 @@ public class ShowControllerEG extends HttpServlet {
         }
         
         switch(menu){
-            case "Manage Pieces":
-                gotoPage("/ManagePieces.jsp", request, response); 
-                break;
-            case "Add Piece":
-                gotoPage("/AddPiece.jsp", request, response); 
-                break;
-            case "Order Piece":
-            gotoPage("/ManagePieces.jsp", request, response); 
-            break;
             case "Manage Shows":
                 gotoPage("/ManageShows.jsp", request, response); 
                 break;
             case "Add Show":
                 gotoPage("/AddShow.jsp", request, response); 
-                break;
-                
+                break;           
             case "List Shows":
 //                ProcessSave(request, session);
                 gotoPage("/AllShows.jsp", request, response); 

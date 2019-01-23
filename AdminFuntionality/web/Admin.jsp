@@ -45,18 +45,23 @@
                    <input type="submit" name="menu" value="Manage Shows"/>
                    <input type="submit" name="menu" value="Add Show" />  
                    <input type="submit" name="menu" value="All Shows"/> 
-                   <input type="submit" name="menu" value="Add Piece"/>
-                   <input type="submit" name="menu" value="Manage Pieces"/>
+<!--                   <input type="submit" name="menu" value="Add Piece"/>
+                   <input type="submit" name="menu" value="Manage Pieces"/>-->
+                </form>
+                <form action="EntryControllerEG" class="entries-page">
+                   <input type="submit" name="menu" value="AddPiece"/>
+                   <input type="submit" name="menu" value="ManagePieces"/>  
+                   <input type="submit" name="menu" value="AllPieces"/>  
                 </form>
             <table id="m">
-                    <tr>             
+<!--                    <tr>             
                         <td>image</td>
                         <td>show title</td>
                     </tr>
-                    <c:forEach var="shows" items="${allshows}">                  
+                    <c:forEach var="shows" items="${allshows}">                  -->
                         <tr>                                            
-                            <td ><img src="${pageContext.request.contextPath}/images/${shows.show_image}" alt="shows" width="80" height="80"></td>
-                            <td ><a href="ShowControllerEG?menu=getShowView&show_id=${shows.show_id}">${shows.show_title}</a> </td>
+<!--                            <td ><img src="${pageContext.request.contextPath}/images/${shows.show_image}" alt="shows" width="80" height="80"></td>
+                            <td ><a href="ShowControllerEG?menu=getShowView&show_id=${shows.show_id}">${shows.show_title}</a> </td>-->
 <!--                            <td><a href="ShowControllerEG?menu=deleteShow&show_id=${shows.show_id}">delete</a></td>
                             <td><a href="ShowControllerEG?menu=updateShow&show_id=${shows.show_id}">update</a></td>-->
                          </tr>

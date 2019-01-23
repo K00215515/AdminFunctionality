@@ -1,12 +1,12 @@
 <%-- 
-    Document   : DetailedUserView
-    Created on : 12-Dec-2018, 10:40:36
+    Document   : DetailedPieceView
+    Created on : 22-Jan-2019, 13:05:58
     Author     : K00215515 Evan Grimes
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="model.AdminEG"%>
+<%@page import="model.EntriesEG"%>
 
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,7 @@
         <link href="${pageContext.request.contextPath}/css/layout.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/colour.css" rel="stylesheet" type="text/css">
-        <title>Detailed User View</title>
+        <title>Detailed Piece View</title>
     </head>
     <body>
         <header class="main-header">
@@ -34,30 +34,19 @@
             </div>
         </header> 
             <div class="logIn">
-                <form action="AdminControllerEG" method="get" class="register-form" name="users">
-                    
+                <form action="EntryControllerEG" method="get" class="register-form" name="pieces">
                 <br>
-                <label>Username</label>
-                <input type="text" name="username" id="username" value="${users.username}"/>
+                <label>Entry Title</label>
+                <input type="text" name= "entry_title" id="entry_title" value ="${pieces.entry_title}"/>
                 <br>
-                <label>Password</label>
-                <input type="password" name="password" id="password" value="${users.password}"/>
+                <label>Entry Description</label>
+                <input type="text" name= "entry_description" id="entry_description" value ="${pieces.entry_description}"/>
                 <br>
-                <label>Email</label>
-                <input type="email" name="email" id="email" value="${users.email}"/>
-                <br>
-                <label>First name</label>
-                <input type="text" name="F_name" id="f_name" value="${users.f_name}"/>
-                <br>
-                <label>Last name</label>
-                <input type="text" name="L_name" id="l_name" value="${users.l_name}"/>
-                <br>
-                
-                <label>Account Type</label>
-                <input type="text" name="account_type" id="account_type" value="${users.account_type}"/>
+                <label>Price</label>
+                <input type="text" name= "price" id="price" value ="${pieces.price}"/>
                 <br>
                 <input type="submit" name="menu" value="Update" />
-<!--                <input type="submit" name="menu" value="Delete" />-->
+                <input type="submit" name="menu" value="Delete" />
                 </form>
             </div>
         </div>
