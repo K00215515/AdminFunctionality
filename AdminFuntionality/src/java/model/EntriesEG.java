@@ -161,6 +161,23 @@ public class EntriesEG {
         return e;
     }
     
+    public ArrayList<EntriesEG> piecesInShow(){
+        ArrayList piecesInShow = new ArrayList<>();
+        Connection connection = DatabaseUtilityClass.getConnection();
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
+        String query = "Select * from entries ORDER BY entry_id";
+        try{
+            ps = connection.prepareStatement(query);
+        }catch (SQLException ex) {
+            System.out.println(ex);
+            return null;
+        }
+        return piecesInShow;
+    }
+    
+    
+    
     public ArrayList<EntriesEG> getAllPieces() {
         ArrayList allpieces = new ArrayList<>();
 
@@ -168,7 +185,7 @@ public class EntriesEG {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
 
-        String query = "Select * from entries ORDER BY entry_id DESC";
+        String query = "Select * from entries ORDER BY entry_id ASC";
 
         try {
 
@@ -217,7 +234,7 @@ public class EntriesEG {
 
     public EntriesEG order() {
         Connection connection = DatabaseUtilityClass.getConnection();
-        String sql = "SELECT * FROM entries ORDER BY entry_title ASC";
+        String sql = "SELECT * FROM entries ORDER BY entry_id DESC";
         return null;
     }
 }

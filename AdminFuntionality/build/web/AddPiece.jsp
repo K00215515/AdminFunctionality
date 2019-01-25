@@ -44,8 +44,8 @@
                 <label>Price</label>
                 <input type="text" name="price" id="price" value="${pieces.price}"/>
                 <br>
-                <input type="submit" name="home" value="ListPieces" />
-                <input type="submit" name="menu" value="SavePiece" />
+                <input type="submit" name="home" value="List Pieces" />
+                <input type="submit" name="menu" value="Save Piece" />
             </form>
         </div>
     </body>

@@ -144,12 +144,6 @@ public final class ManageUsers_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write('>');
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${users.username}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</a> </td>\n");
-          out.write("                           <td ><a href=\"AdminControllerEG?menu=getUserView&user_id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${users.user_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write('"');
-          out.write('>');
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${users.account_type}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</a> </td>\n");
           out.write("                           <td ><a href=\"AdminControllerEG?menu=deleteUser&user_id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${users.user_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">Delete</a> </td>\n");

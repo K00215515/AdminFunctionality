@@ -34,15 +34,15 @@
         </header> 
         <div class="logIn">
             <form action="EntryControllerEG" method="post" class="register-form" name="pieces">
-                <input type="submit" name="menu" value="AddPiece" />
-                <input type="submit" name="menu" value="OrderPiece" />
-<!--                <input type="submit" name="menu" value="List Pieces" />-->
+                <input type="submit" name="menu" value="Add Piece" /><!--
+                <input type="submit" name="menu" value="Order Piece" />-->
+                <input type="submit" name="home" value="List Pieces" />
             </form>
             <table id="m">
                 <tr>
                     <td>Pieces Title</td>
                     <c:forEach var="pieces" items="${allpieces}">                  
-                        <tr>    
+                        <tr>   
                             <td><a href="EntryControllerEG?menu=getPieceView&entry_id=${pieces.entry_id}">${pieces.entry_title}</a></td>
                          </tr>
                     </c:forEach>

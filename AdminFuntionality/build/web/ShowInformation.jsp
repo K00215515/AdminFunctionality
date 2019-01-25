@@ -1,12 +1,13 @@
 <%-- 
-    Document   : DetailedShowView
-    Created on : 12-Dec-2018, 14:06:00
-    Author     : K00215515 Evan Grimes
+    Document   : ShowInformation
+    Created on : 25-Jan-2019, 15:59:17
+    Author     : K00215515 Evan Grimes 
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="model.ShowsEG"%>
+<%@page import="model.EntriesEG"%>
 
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,7 @@
         <link href="${pageContext.request.contextPath}/css/layout.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/colour.css" rel="stylesheet" type="text/css">
-        <title>Detailed Show View</title>
+        <title>Show Information</title>
     </head>
     <body>
         <header class="main-header">
@@ -33,9 +34,12 @@
                 </div>
             </div>
         </header> 
+            
             <div class="logIn">
                 <form action="ShowControllerEG" method="get" class="register-form" name="shows">
-                    
+                <label>Show Title</label>
+                <br>
+                <label>Entries</label> 
                 <br>
                 <label>Show Name</label>
                 <input type="text" name="show_title" id="show_title" value="${shows.show_title}"/>
@@ -46,12 +50,8 @@
                 <label>Show Image</label>
                 <input type="text" name="show_image" id="show_image" value="${shows.show_image}"/>
                 <br>
-                <input type="submit" name="menu" value="Update" />
-                <input type="submit" name="menu" value="Delete" />
-                <input type="submit" name="menu" value="Show Entries"/>
+
                 </form>
-                
-                <!--list of entries for the show depending on its id-->
             </div>
             
         </div>
@@ -63,4 +63,3 @@
         <script src="${pageContext.request.contextPath}/js/form-validation.js"></script>
     </body>
 </html>
-

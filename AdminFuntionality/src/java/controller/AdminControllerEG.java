@@ -57,6 +57,9 @@ public class AdminControllerEG extends HttpServlet {
                 ProcessSave(request, session);
                 gotoPage("/Home.jsp", request, response);
                 break;
+            case "List Users":
+                gotoPage("/Admin.jsp", request, response);
+                break;   
             case "logout":
                 System.out.println("Logged Out");
                 gotoPage("/Home.jsp", request, response);
@@ -69,19 +72,26 @@ public class AdminControllerEG extends HttpServlet {
                 if (!validLogin) {
                     String message = "invalid logon details.. try again";
                     AdminEG a = new AdminEG();
-                    boolean admin = false;
-                    boolean student = false;
-//                    admin = UserLocalServiceUtil.hasRoleUser(admin, a.getUser_id());
-                    System.out.println(a.getAccount_type());
-                    if(admin == true){
-                        gotoPage("/Admin.jsp", request, response);
-                    }
-                    if(student == true){
-                        gotoPage("/Home.jsp", request, response);
-                    }
-                    else{
-                        gotoPage("/SignUp.jsp", request, response);
-                    }
+//                    boolean admin = false;
+//                    boolean student = false;
+//                    System.out.println(a.getAccount_type());
+//                    if(admin == true){
+//                        gotoPage("/Admin.jsp", request, response);
+//                    }
+//                    if(student == true){
+//                        gotoPage("/Home.jsp", request, response);
+//                    }
+//                    else{
+//                        gotoPage("/SignUp.jsp", request, response);
+//                    }
+
+//                    AdminEG a = new AdminEG();
+//                    if("admin".equals(a.getAccount_type())){
+//                        gotoPage("/Admin.jsp", request, response);
+//                    }
+//                    if("student".equals(a.getAccount_type())){
+//                        gotoPage("/Home.jsp", request, response);
+//                    }
                     session.setAttribute("message", message);
                     gotoPage("/LogIn.jsp", request, response);
                 } else {

@@ -48,8 +48,12 @@
                 <br>
                 <input type="submit" name="menu" value="Update" />
                 <input type="submit" name="menu" value="Delete" />
+                <input type="submit" name="menu" value="Show Entries"/>
                 </form>
+                
+                <!--list of entries for the show depending on its id-->
             </div>
+            
         </div>
         <script
             src="https://code.jquery.com/jquery-1.12.4.js"

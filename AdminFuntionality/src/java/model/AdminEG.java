@@ -5,13 +5,20 @@
  */
 package model;
 
+import java.io.IOException;
 import java.io.Serializable;
 import static java.lang.System.out;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -26,10 +33,11 @@ public class AdminEG implements Serializable{
     private String l_name;
     private String account_type;
     private int userid;
+    private Date date_joined;
     
     public AdminEG(){
     }
-    public AdminEG(int user_id, String username, String password, String email, String f_name, String l_name, String account_type) {
+    public AdminEG(int user_id, String username, String password, String email, String f_name, String l_name, String account_type, Date date_joined) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
@@ -37,6 +45,7 @@ public class AdminEG implements Serializable{
         this.f_name = f_name;
         this.l_name = l_name;
         this.account_type = account_type;
+        this.date_joined = date_joined;
     }
     public AdminEG(int user_id, String username, String password, String email, String f_name, String l_name, String account_type, int userid) {
         this.user_id = user_id;
@@ -61,7 +70,16 @@ public class AdminEG implements Serializable{
         this.password = password;
         this.account_type = account_type;
     }
-    
+
+    public AdminEG(int user_id, String username, String password, String email, String f_name, String L_name, String account_type) {
+        this.user_id = user_id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.f_name = f_name;
+        this.l_name = l_name;
+        this.account_type = account_type;
+    }
     
     public int getUserid(){
         return userid;
@@ -69,8 +87,7 @@ public class AdminEG implements Serializable{
     public int getUser_id(){
         return user_id;
     }
-    
-    
+     
     public String getUsername() {
         return username;
     }
@@ -93,7 +110,12 @@ public class AdminEG implements Serializable{
     public String getAccount_type(){
         return account_type;
     }
-    
+
+    public Date getDate_joined() {
+        return date_joined;
+    }
+
+
     public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
@@ -122,16 +144,21 @@ public class AdminEG implements Serializable{
         this.account_type = account_type;
     }
     
+    public void setDate_joined(Date date_joined) {
+        this.date_joined = date_joined;
+    }
+    
     public AdminEG Login(String username, String password, String account_type) {
         Connection connection = DatabaseUtilityClass.getConnection();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
-        String query = "Select * from Users where username = ? AND password = ? AND account_type = admin";
+        String query = "Select * from Users where username = ? AND password = ? "; //AND account_type = admin
         
         try{
             ps = connection.prepareStatement(query);
             ps.setString(1, username);
             ps.setString(2, password);
+//            ps.setString(3, account_type);
             resultSet = ps.executeQuery();
             while(resultSet.next()){
                 this.user_id = resultSet.getInt("user_id");
@@ -141,7 +168,7 @@ public class AdminEG implements Serializable{
                 this.f_name = resultSet.getString("F_name");
                 this.l_name = resultSet.getString("L_name");
                 this.account_type = resultSet.getString("account_type");
-            }
+            }   
             connection.close();
             
         }catch(SQLException ex){
@@ -207,6 +234,7 @@ public class AdminEG implements Serializable{
                 u.setF_name(resultSet.getString("F_name"));
                 u.setL_name(resultSet.getString("L_name")); 
                 u.setAccount_type(resultSet.getString("account_type"));   
+                u.setDate_joined(resultSet.getDate("date_joined"));
                 return u;
             } 
             connection.close();
@@ -237,6 +265,8 @@ public class AdminEG implements Serializable{
                 u.setEmail(resultSet.getString("email"));
                 u.setF_name(resultSet.getString("F_name"));
                 u.setL_name(resultSet.getString("L_name"));
+                u.setAccount_type(resultSet.getString("account_type"));   
+                u.setDate_joined(resultSet.getDate("date_joined"));
                 allusers.add(u);
             }
             connection.close();
@@ -290,6 +320,5 @@ public class AdminEG implements Serializable{
             return false;
         }
         return true;
-    }
-    
+    } 
 }

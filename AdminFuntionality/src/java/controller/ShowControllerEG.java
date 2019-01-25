@@ -58,6 +58,13 @@ public class ShowControllerEG extends HttpServlet {
             case "Manage Shows":
                 gotoPage("/ManageShows.jsp", request, response); 
                 break;
+                
+            case "Show Entries":
+                gotoPage("/ShowInformation.jsp", request, response); 
+                break;            
+            case "showInformation":
+                gotoPage("/ShowInformation.jsp", request, response); 
+                break;
             case "Add Show":
                 gotoPage("/AddShow.jsp", request, response); 
                 break;           
@@ -77,7 +84,7 @@ public class ShowControllerEG extends HttpServlet {
                 ArrayList<ShowsEG> allshows = new ArrayList<>();
                 allshows = show.getAllShows();
                 session.setAttribute("allshows", allshows);
-                gotoPage("/AllShows.jsp", request, response);
+                gotoPage("/ManageShows.jsp", request, response);
                 break; 
             case "deleteShow":
                 String showid1 = request.getParameter("show_id");
@@ -90,28 +97,28 @@ public class ShowControllerEG extends HttpServlet {
                 session.setAttribute("allshows", allshows1);
                 gotoPage("/Admin.jsp", request, response);
                 break;
-            case "liveShow":
-                String showid2 = request.getParameter("show_id");
-                int shows_id2 = Integer.parseInt(showid2);
-                ShowsEG shows2 = new ShowsEG();
-//                boolean works = shows2.deleteShow(shows_id2);
-                
-                ArrayList<ShowsEG> allshows2 = new ArrayList<>();
-                allshows1 = shows2.getAllShows();
-                session.setAttribute("allshows", allshows1);
-                gotoPage("/Admin.jsp", request, response);
-                break;   
-            case "retireShow":
-                String showid3 = request.getParameter("show_id");
-                int shows_id3 = Integer.parseInt(showid3);
-                ShowsEG shows3 = new ShowsEG();
-                boolean work = shows3.deleteShow(shows_id3);
-                
-                ArrayList<ShowsEG> allshows3 = new ArrayList<>();
-                allshows1 = shows3.getAllShows();
-                session.setAttribute("allshows", allshows3);
-                gotoPage("/Admin.jsp", request, response);
-                break;
+//            case "liveShow":
+//                String showid2 = request.getParameter("show_id");
+//                int shows_id2 = Integer.parseInt(showid2);
+//                ShowsEG shows2 = new ShowsEG();
+////                boolean works = shows2.deleteShow(shows_id2);
+//                
+//                ArrayList<ShowsEG> allshows2 = new ArrayList<>();
+//                allshows1 = shows2.getAllShows();
+//                session.setAttribute("allshows", allshows1);
+//                gotoPage("/Admin.jsp", request, response);
+//                break;   
+//            case "retireShow":
+//                String showid3 = request.getParameter("show_id");
+//                int shows_id3 = Integer.parseInt(showid3);
+//                ShowsEG shows3 = new ShowsEG();
+//                boolean work = shows3.deleteShow(shows_id3);
+//                
+//                ArrayList<ShowsEG> allshows3 = new ArrayList<>();
+//                allshows1 = shows3.getAllShows();
+//                session.setAttribute("allshows", allshows3);
+//                gotoPage("/Admin.jsp", request, response);
+//                break;
             case "updateShow":
                 gotoPage("/DetailedShowView.jsp", request, response);
                 break;

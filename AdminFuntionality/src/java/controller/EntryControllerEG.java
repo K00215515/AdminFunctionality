@@ -53,18 +53,18 @@ public class EntryControllerEG extends HttpServlet {
         }
         
         switch(menu){
-            case "ManagePieces":
+            case "Manage Pieces":
                 System.out.println("manage pieces");
                 gotoPage("/ManagePieces.jsp", request, response); 
                 break;
-            case "AddPiece":
+            case "Add Piece":
                 gotoPage("/AddPiece.jsp", request, response); 
                 break;
-            case "OrderPiece":
+            case "Order Piece":
                 ProcessOrder(request, session);
                 gotoPage("/ManagePieces.jsp", request, response); 
                 break; 
-            case "SavePiece":
+            case "Save Piece":
                ProcessSave(request, session);
                gotoPage("/Admin.jsp", request, response);
                break;
@@ -77,31 +77,32 @@ public class EntryControllerEG extends HttpServlet {
                 ProcessDelete(request, session, pieces);
                 gotoPage("/Admin.jsp", request, response);
                 break;
+            case "home":
+                EntriesEG e2 = new EntriesEG();
+                ArrayList<EntriesEG> allpieces = new ArrayList<>();
+                allpieces = e2.getAllPieces();
+                session.setAttribute("allpieces",allpieces);
+                gotoPage("/ManagePieces.jsp", request, response);
+                break;
             case "deletePiece":
                 String entryid1 = request.getParameter("show_id");
                 int entry_id1 = Integer.parseInt(entryid1);
                 EntriesEG e1 = new EntriesEG();
                 boolean worked = e1.deletePiece(entry_id1);
                 
-                ArrayList<EntriesEG> allpieces = new ArrayList<>();
-                allpieces = e1.getAllPieces();
-                session.setAttribute("allpieces", allpieces);
+                ArrayList<EntriesEG> allpieces2 = new ArrayList<>();
+                allpieces2 = e1.getAllPieces();
+                session.setAttribute("allpieces", allpieces2);
                 gotoPage("/Admin.jsp", request, response);
                 break;
             case "List Pieces":
 //                ProcessSave(request, session);
+                gotoPage("/ManagePieces.jsp", request, response); 
+                break;
+            case "All Pieces":
                 gotoPage("/AllPieces.jsp", request, response); 
                 break;
-            case "AllPieces":
-                gotoPage("/AllPieces.jsp", request, response); 
-                break;
-            case "home":
-                EntriesEG e2 = new EntriesEG();
-                ArrayList<EntriesEG> allpieces1 = new ArrayList<>();
-                allpieces1 = e2.getAllPieces();
-                session.setAttribute("allpieces",allpieces1);
-                gotoPage("/AllPieces.jsp", request, response);
-                break;    
+                
                 
             case "getPieceView":
                 String entryid = request.getParameter("entry_id");

@@ -53,9 +53,9 @@
                 <label>Last Name</label>
                     <input type="text" name="L_name" id="l_name" value="${users.l_name}"/>
                 <br>
-                <label>Account Type</label>
+<!--                <label>Account Type</label>
                 <input type="text" name="account_type" id="account_type" value="${users.account_type}"/>
-                <br>
+                <br>-->
                 <input type="submit" name="menu" value="SignUp" />
 
             </form>

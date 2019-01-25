@@ -45,8 +45,8 @@
                     <br>
                     <input type="submit" name="menu" value="LogIn" />  
                     <br>
+<!--                    <input type="submit" name="menu" value="Process Login" />-->
                     <input type="submit" name="menu" value="Admin LogIn" />
-                    <!--<a href="AdminLogIn.jsp">Admin LogIn</a>-->
 
                 </form>
             </div>

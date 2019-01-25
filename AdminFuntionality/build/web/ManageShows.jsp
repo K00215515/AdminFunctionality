@@ -35,7 +35,7 @@
         </header>
         <div class="logIn">
             <form action="ShowControllerEG" method="post" class="register-form" name="show">
-
+                <input type="submit" name="menu" value="Add Show"/>
                 <input type="submit" name="home" value="List All Shows" />
             </form>
         <table id="m">
@@ -48,7 +48,7 @@
                             <td><a href="ShowControllerEG?menu=getShowView&show_id=${shows.show_id}">${shows.show_title}</a></td>
 <!--                            <td><a href="ShowControllerEG?menu=retireShow&show_id=${shows.show_id}">Retire</a></td>
                             <td><a href="ShowControllerEG?menu=liveShow&show_id=${shows.show_id}">Live</a></td>-->
-<!--                            <td><a href="ShowControllerEG?menu=deleteShow&show_id=${shows.show_id}">Delete</a> </td>
+                            <td><a href="ShowControllerEG?menu=deleteShow&show_id=${shows.show_id}">Delete</a> </td><!--
                             <td><a href="ShowControllerEG?menu=updateShow&show_id=${shows.show_id}">Update</a> </td>-->
                             
                          </tr>

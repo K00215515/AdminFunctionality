@@ -52,9 +52,11 @@
                 <label>Last name</label>
                 <input type="text" name="L_name" id="l_name" value="${users.l_name}"/>
                 <br>
-                
                 <label>Account Type</label>
                 <input type="text" name="account_type" id="account_type" value="${users.account_type}"/>
+                <br>
+                <label>Date Joined</label>
+                <input type="datetime" name="date_joined" id="date_joined" value="${users.date_joined}"/>
                 <br>
                 <input type="submit" name="menu" value="Update" />
 <!--                <input type="submit" name="menu" value="Delete" />-->

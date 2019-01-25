@@ -70,10 +70,6 @@ public class UserControllerEG extends HttpServlet {
                 session.setAttribute("allusers", allusers);
                 gotoPage("/ManageUsers.jsp", request, response);
                 break;
-            
-            
-            
-
             default:
                 gotoPage("/invalid.jsp", request, response);
                 break;
@@ -93,7 +89,7 @@ public class UserControllerEG extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String account_type = request.getParameter("account_type");
-        AdminEG admin = new AdminEG(username, password, account_type); //account_type
+        AdminEG admin = new AdminEG(username, password, account_type);
         admin.Login(username, password, account_type);
         session.setAttribute("users", admin);
        

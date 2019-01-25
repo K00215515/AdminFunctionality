@@ -43,42 +43,10 @@
                 </form>
                 <form action="ShowControllerEG" class="shows-page">
                    <input type="submit" name="menu" value="Manage Shows"/>
-                   <input type="submit" name="menu" value="Add Show" />  
-                   <input type="submit" name="menu" value="All Shows"/> 
-<!--                   <input type="submit" name="menu" value="Add Piece"/>
-                   <input type="submit" name="menu" value="Manage Pieces"/>-->
                 </form>
                 <form action="EntryControllerEG" class="entries-page">
-                   <input type="submit" name="menu" value="AddPiece"/>
-                   <input type="submit" name="menu" value="ManagePieces"/>  
-                   <input type="submit" name="menu" value="AllPieces"/>  
+                   <input type="submit" name="menu" value="Manage Pieces"/>  
                 </form>
-            <table id="m">
-<!--                    <tr>             
-                        <td>image</td>
-                        <td>show title</td>
-                    </tr>
-                    <c:forEach var="shows" items="${allshows}">                  -->
-                        <tr>                                            
-<!--                            <td ><img src="${pageContext.request.contextPath}/images/${shows.show_image}" alt="shows" width="80" height="80"></td>
-                            <td ><a href="ShowControllerEG?menu=getShowView&show_id=${shows.show_id}">${shows.show_title}</a> </td>-->
-<!--                            <td><a href="ShowControllerEG?menu=deleteShow&show_id=${shows.show_id}">delete</a></td>
-                            <td><a href="ShowControllerEG?menu=updateShow&show_id=${shows.show_id}">update</a></td>-->
-                         </tr>
-                    </c:forEach>
-            </table>
-<!--                <table id="m">
-                    <tr>             
-                        <td>username</td>
-                    </tr>
-              <!--
-                        <tr>                                            
-                            <td ><a href="UserControllerEG?menu=getUserView&user_id=${users.userid}">${users.username}</a> </td>
-                            <td ><a href="UserControllerEG?menu=deleteUsers&user_id=${users.userid}">Delete</a> </td>
-                            <td ><a href="UserControllerEG?menu=updateUsers&user_id=${users.userid}">Update</a> </td>
-                         </tr>
-
-                    </table>-->
         </div>
     </body>
 </html>

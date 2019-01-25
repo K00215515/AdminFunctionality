@@ -90,13 +90,13 @@ public final class ManagePieces_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("        </header> \n");
       out.write("        <div class=\"logIn\">\n");
       out.write("            <form action=\"EntryControllerEG\" method=\"post\" class=\"register-form\" name=\"pieces\">\n");
-      out.write("                <input type=\"submit\" name=\"menu\" value=\"AddPiece\" />\n");
-      out.write("                <input type=\"submit\" name=\"menu\" value=\"OrderPiece\" />\n");
-      out.write("                <input type=\"submit\" name=\"menu\" value=\"List Pieces\" />\n");
+      out.write("                <input type=\"submit\" name=\"menu\" value=\"Add Piece\" /><!--\n");
+      out.write("                <input type=\"submit\" name=\"menu\" value=\"Order Piece\" />-->\n");
+      out.write("                <input type=\"submit\" name=\"home\" value=\"List Pieces\" />\n");
       out.write("            </form>\n");
       out.write("            <table id=\"m\">\n");
       out.write("                <tr>\n");
-      out.write("                    <td>Pieces</td>\n");
+      out.write("                    <td>Pieces Title</td>\n");
       out.write("                    ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
@@ -137,7 +137,7 @@ public final class ManagePieces_jsp extends org.apache.jasper.runtime.HttpJspBas
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("                  \n");
-          out.write("                        <tr>    \n");
+          out.write("                        <tr>   \n");
           out.write("                            <td><a href=\"EntryControllerEG?menu=getPieceView&entry_id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pieces.entry_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write('"');

@@ -104,8 +104,7 @@ public class ShowsEG implements Serializable{
             ResultSet rs = ps2.executeQuery();
             while(rs.next()){
                 this.show_id = rs.getInt(1);
-            }
-               
+            }   
             connection.close();
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -135,16 +134,11 @@ public class ShowsEG implements Serializable{
 //                n.setUserId(resultSet.getInt("UserId"));
                 return n;
             }
-
             connection.close();
-            
-
         } catch (SQLException ex) {
             System.out.println(ex);
             return null;
         }
-        
-
         return n;
     }
 
@@ -154,11 +148,8 @@ public class ShowsEG implements Serializable{
         Connection connection = DatabaseUtilityClass.getConnection();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
-
         String query = "Select * from Shows";
-
         try {
-
             ps = connection.prepareStatement(query);
             resultSet = ps.executeQuery();
             while (resultSet.next()) {
@@ -167,8 +158,6 @@ public class ShowsEG implements Serializable{
                 n.setShow_title(resultSet.getString("show_title"));
                 n.setShow_description(resultSet.getString("show_description"));
                 n.setShow_image(resultSet.getString("show_image"));
-                
-                
 //                n.setUserId(resultSet.getInt("userId"));
                 allshows.add(n);
             }
@@ -182,11 +171,9 @@ public class ShowsEG implements Serializable{
 
     public ShowsEG update() {
         Connection connection = DatabaseUtilityClass.getConnection();
-        String sql = "UPDATE Shows SET show_title = ?, show_description = ?, show_image = ? WHERE show_id = ?;";
-        
+        String sql = "UPDATE Shows SET show_title = ?, show_description = ?, show_image = ? WHERE show_id = ?;";   
         try{
             PreparedStatement ps = connection.prepareStatement(sql);
-          
             ps.setString(1, this.getShow_title());
             ps.setString(2, this.getShow_description());
             ps.setString(3, this.getShow_image());
@@ -206,9 +193,7 @@ public class ShowsEG implements Serializable{
         Connection connection = DatabaseUtilityClass.getConnection();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
-        
         String sql = "DELETE FROM shows WHERE show_id = ?";
-        
         try{
             ps = connection.prepareStatement(sql);
             ps.setInt(1, show_id);
