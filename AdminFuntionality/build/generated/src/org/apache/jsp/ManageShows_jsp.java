@@ -92,7 +92,9 @@ public final class ManageShows_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"logIn\">\n");
       out.write("            <form action=\"ShowControllerEG\" method=\"post\" class=\"register-form\" name=\"show\">\n");
       out.write("                <input type=\"submit\" name=\"menu\" value=\"Add Show\"/>\n");
-      out.write("                <input type=\"submit\" name=\"home\" value=\"List All Shows\" />\n");
+      out.write("<!--                <input type=\"submit\" name=\"home\" value=\"List All Shows\" />-->\n");
+      out.write("                <input type=\"submit\" name=\"home\" value=\"Live Shows\"/>\n");
+      out.write("\n");
       out.write("            </form>\n");
       out.write("        <table id=\"m\">\n");
       out.write("                    <tr>             \n");

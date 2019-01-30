@@ -82,7 +82,7 @@ public final class LogIn_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\n");
       out.write("            </header>  \n");
       out.write("            <div class=\"logIn\">\n");
-      out.write("                <form action=\"AdminControllerEG\" method=\"post\" class=\"register-form\" name=\"Login\">\n");
+      out.write("                <form action=\"UserControllerEG\" method=\"post\" class=\"register-form\" name=\"Login\">\n");
       out.write("                    <h2>Log In</h2><br>\n");
       out.write("                    <label>User name</label>\n");
       out.write("                    <input type=\"text\" name=\"username\" id=\"username\"/>\n");
@@ -92,7 +92,7 @@ public final class LogIn_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <br>\n");
       out.write("                    <input type=\"submit\" name=\"menu\" value=\"LogIn\" />  \n");
       out.write("                    <br>\n");
-      out.write("                    <input type=\"submit\" name=\"menu\" value=\"Process Login\" />\n");
+      out.write("<!--                    <input type=\"submit\" name=\"menu\" value=\"Process Login\" />-->\n");
       out.write("                    <input type=\"submit\" name=\"menu\" value=\"Admin LogIn\" />\n");
       out.write("\n");
       out.write("                </form>\n");

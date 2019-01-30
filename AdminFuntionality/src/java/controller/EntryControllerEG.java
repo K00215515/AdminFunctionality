@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.EntriesEG;
+import model.ShowsEG;
 
 /**
  *
@@ -47,12 +48,24 @@ public class EntryControllerEG extends HttpServlet {
             pieces = new EntriesEG();
             session.setAttribute("pieces", pieces);
         }
+        ShowsEG shows = (ShowsEG) session.getAttribute("shows");
+        if (shows == null) {
+            shows = new ShowsEG();
+            session.setAttribute("shows", shows);
+        }
+        
         menu = request.getParameter("menu");
         if (menu == null) {
             menu = "home";
         }
         
         switch(menu){
+            case "AddPiece":
+                gotoPage("/AddPiece.jsp", request, response); 
+                break;
+            case "AddPieces":
+                gotoPage("/AddPieces.jsp", request, response); 
+                break;
             case "Manage Pieces":
                 System.out.println("manage pieces");
                 gotoPage("/ManagePieces.jsp", request, response); 
@@ -65,6 +78,10 @@ public class EntryControllerEG extends HttpServlet {
                 gotoPage("/ManagePieces.jsp", request, response); 
                 break; 
             case "Save Piece":
+               ProcessSave(request, session);
+               gotoPage("/Admin.jsp", request, response);
+               break;
+            case "Save":
                ProcessSave(request, session);
                gotoPage("/Admin.jsp", request, response);
                break;
@@ -84,6 +101,13 @@ public class EntryControllerEG extends HttpServlet {
                 session.setAttribute("allpieces",allpieces);
                 gotoPage("/ManagePieces.jsp", request, response);
                 break;
+            case "home2":
+                EntriesEG e3 = new EntriesEG();
+                ArrayList<EntriesEG> allpieces1 = new ArrayList<>();
+                allpieces1 = e3.getAllPieces();
+                session.setAttribute("allpieces",allpieces1);
+                gotoPage("/ShowInformation.jsp", request, response);
+                break;
             case "deletePiece":
                 String entryid1 = request.getParameter("show_id");
                 int entry_id1 = Integer.parseInt(entryid1);
@@ -97,12 +121,15 @@ public class EntryControllerEG extends HttpServlet {
                 break;
             case "List Pieces":
 //                ProcessSave(request, session);
-                gotoPage("/ManagePieces.jsp", request, response); 
+                gotoPage("/AllPieces.jsp", request, response); 
                 break;
             case "All Pieces":
                 gotoPage("/AllPieces.jsp", request, response); 
                 break;
-                
+            case "Pieces":
+//                ProcessSave(request, session);
+                gotoPage("/ShowInformation.jsp", request, response); 
+                break;    
                 
             case "getPieceView":
                 String entryid = request.getParameter("entry_id");
@@ -113,6 +140,24 @@ public class EntryControllerEG extends HttpServlet {
                 
                 if(e != null){
                     session.setAttribute("pieces", e);
+                    ShowsEG s = new ShowsEG();
+                    System.out.println("get show details" + e.getShow_id());
+                    s = s.getShowDetails(e.getShow_id());
+                    if(s!=null){
+                        System.out.println("show piece" + s.getShow_title());
+                        session.setAttribute("pieceShows", s);
+                    }
+                    else{
+                        System.out.println("show details null");
+                        
+                    }
+                }
+                    
+                    
+                    
+                    
+                    
+                    
 //                    EntriesEG en = new EntriesEG();
 //                    System.out.println("get piece details " + e.getEntry_id());
 //                    if(en != null){
@@ -121,7 +166,7 @@ public class EntryControllerEG extends HttpServlet {
 //                    }else{
 //                        System.out.println("piece details null");
 //                    }
-                }
+//                }
                 gotoPage("/DetailedPieceView.jsp", request, response);
                 break;    
             default:
@@ -141,11 +186,14 @@ public class EntryControllerEG extends HttpServlet {
         String entry_title = request.getParameter("entry_title");
         String entry_description = request.getParameter("entry_description");
         String price = request.getParameter("price");
+        ShowsEG show = (ShowsEG) session.getAttribute("shows");
+        System.out.println("Show id " + show.getShow_id());
+        EntriesEG entry = new EntriesEG(entry_title, entry_description, price, show.getShow_id());
 //        Double price = Double.parseDouble(prices);
 //        String price = request.getParameter("price");
 //        AdminEG user = (AdminEG) session.getAttribute("users");
 //        System.out.println("user_id: " + user.getUserid());
-        EntriesEG entry = new EntriesEG(entry_title, entry_description, price);
+//        EntriesEG entry = new EntriesEG(entry_title, entry_description, price);
         entry = entry.saveToDatabase();
         
         session.setAttribute("entries", entry);

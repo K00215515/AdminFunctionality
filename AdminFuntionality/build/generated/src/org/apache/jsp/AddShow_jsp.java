@@ -71,13 +71,10 @@ public final class AddShow_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <label for=\"toggle\">&#9776;</label>\n");
       out.write("                    <input type=\"checkbox\" id=\"toggle\"/>\n");
       out.write("                <div class=\"menu\">\n");
-      out.write("                    <a href=\"Home.jsp\">Home</a>\n");
-      out.write("<!--                        <a href=\"Gallery.html\">Gallery</a>-->\n");
-      out.write("                    <a href=\"Shows.jsp\">Shows</a>\n");
-      out.write("                    <a href=\"Admin.jsp\">Admin</a>\n");
-      out.write("<!--                        <a href=\"Profile.html\">Profile</a> -->\n");
-      out.write("<!--                    <a href=\"SignUp.jsp\">SignIn</a> \n");
-      out.write("                    <a href=\"Logout.jsp\">Logout</a> -->\n");
+      out.write("                    <a href=\"NavigationControllerEG?menu=home\">Home</a>\n");
+      out.write("                    <a href=\"NavigationControllerEG?menu=shows\">Shows</a>\n");
+      out.write("                    <a href=\"NavigationControllerEG?menu=admin\">Admin</a>\n");
+      out.write("\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </header> \n");
@@ -97,7 +94,8 @@ public final class AddShow_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <input type=\"text\" name=\"show_image\" id=\"show_image\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${shows.show_image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\"/><br>\n");
-      out.write("                <input type=\"submit\" name=\"menu\" value=\"save\" />\n");
+      out.write("                <input type=\"submit\" name=\"home\" value=\"Live Shows\" />\n");
+      out.write("                <input type=\"submit\" name=\"menu\" value=\"SaveShow\" />\n");
       out.write("            </form>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");

@@ -21,6 +21,7 @@ public class EntriesEG {
     private String entry_title;
     private String entry_description;
     private String price;
+    private int show_id;
     
     public EntriesEG(){
     }
@@ -31,11 +32,6 @@ public class EntriesEG {
         this.entry_description = entry_description;
         this.price = price;
     }
-    
-//    public EntriesEG(String entry_description){
-//        this.entry_description = entry_description;
-////        this.price = price;
-//    }
 
     public EntriesEG(String entry_title, String entry_description, String price) {
         this.entry_title = entry_title;
@@ -44,12 +40,13 @@ public class EntriesEG {
         
     }
 
-//    public EntriesEG(int entry_id, String entry_title, String entry_description, String price) {
-//       this.entry_id = entry_id;
-//       this.entry_title = entry_title;
-//       this.entry_description = entry_description; 
-//       this.price = price;
-//    }
+    public EntriesEG(String entry_title, String entry_description, String price, int show_id) {
+        this.entry_title = entry_title;
+        this.entry_id = entry_id;
+        this.entry_description = entry_description;
+        this.price = price;
+        this.show_id = show_id;
+    }
 
     public String getEntry_description() {
         return entry_description;
@@ -65,6 +62,10 @@ public class EntriesEG {
     public String getPrice() {
         return price;
     }
+    public int getShow_id() {
+        return show_id;
+    }
+    
 
     public void setEntry_description(String entry_description) {
         this.entry_description = entry_description;
@@ -82,10 +83,14 @@ public class EntriesEG {
         this.price = price;
     }
     
+    public void setShow_id(int show_id) {
+        this.show_id = show_id;
+    }
+    
     public EntriesEG saveToDatabase(){
         Connection connection = DatabaseUtilityClass.getConnection();
         
-        String sql = "INSERT INTO entries(entry_title, entry_description, price) VALUES(?,?,?);";
+        String sql = "INSERT INTO entries(entry_title, entry_description, price, show_id) VALUES(?,?,?,?);";
         String query = "SELECT LAST_INSERT_ID()";
         
         try{
@@ -94,6 +99,7 @@ public class EntriesEG {
             ps.setString(1, this.getEntry_title());
             ps.setString(2, this.getEntry_description());
             ps.setString(3, this.getPrice());
+            ps.setInt(4, this.getShow_id());
             ps.executeUpdate();
             System.out.println(ps.toString());
             ResultSet rs = ps2.executeQuery();
@@ -149,7 +155,7 @@ public class EntriesEG {
                 e.setEntry_title(resultSet.getString("entry_title"));
                 e.setEntry_description(resultSet.getString("entry_description"));
                 e.setPrice(resultSet.getString("price"));
-//                n.setUserId(resultSet.getInt("UserId"));
+                e.setShow_id(resultSet.getInt("show_id"));
                 return e;
             }
             connection.close();
@@ -185,7 +191,7 @@ public class EntriesEG {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
 
-        String query = "Select * from entries ORDER BY entry_id ASC";
+        String query = "Select * from entries ORDER BY entry_id";
 
         try {
 
@@ -197,7 +203,7 @@ public class EntriesEG {
                 e.setEntry_title(resultSet.getString("entry_title"));
                 e.setEntry_description(resultSet.getString("entry_description"));
                 e.setPrice(resultSet.getString("price"));
-
+                e.setShow_id(resultSet.getInt("show_id"));
 //                n.setUserId(resultSet.getInt("userId"));
                 allpieces.add(e);
             }

@@ -59,12 +59,13 @@ public class ShowControllerEG extends HttpServlet {
                 gotoPage("/ManageShows.jsp", request, response); 
                 break;
                 
-            case "Show Entries":
-                gotoPage("/ShowInformation.jsp", request, response); 
-                break;            
-            case "showInformation":
-                gotoPage("/ShowInformation.jsp", request, response); 
-                break;
+//            case "Show Entries":
+//                gotoPage("/ShowInformation.jsp", request, response); 
+//                break;            
+//            case "showInformation":
+//                gotoPage("/ShowInformation.jsp", request, response); 
+//                break;
+                
             case "Add Show":
                 gotoPage("/AddShow.jsp", request, response); 
                 break;           
@@ -73,6 +74,9 @@ public class ShowControllerEG extends HttpServlet {
                 gotoPage("/AllShows.jsp", request, response); 
                 break;
             case "List All Shows":
+                gotoPage("/ManageShows.jsp", request, response); 
+                break;
+            case "Live Shows":
                 gotoPage("/ManageShows.jsp", request, response); 
                 break;
             case "SaveShow":
@@ -97,28 +101,7 @@ public class ShowControllerEG extends HttpServlet {
                 session.setAttribute("allshows", allshows1);
                 gotoPage("/Admin.jsp", request, response);
                 break;
-//            case "liveShow":
-//                String showid2 = request.getParameter("show_id");
-//                int shows_id2 = Integer.parseInt(showid2);
-//                ShowsEG shows2 = new ShowsEG();
-////                boolean works = shows2.deleteShow(shows_id2);
-//                
-//                ArrayList<ShowsEG> allshows2 = new ArrayList<>();
-//                allshows1 = shows2.getAllShows();
-//                session.setAttribute("allshows", allshows1);
-//                gotoPage("/Admin.jsp", request, response);
-//                break;   
-//            case "retireShow":
-//                String showid3 = request.getParameter("show_id");
-//                int shows_id3 = Integer.parseInt(showid3);
-//                ShowsEG shows3 = new ShowsEG();
-//                boolean work = shows3.deleteShow(shows_id3);
-//                
-//                ArrayList<ShowsEG> allshows3 = new ArrayList<>();
-//                allshows1 = shows3.getAllShows();
-//                session.setAttribute("allshows", allshows3);
-//                gotoPage("/Admin.jsp", request, response);
-//                break;
+            
             case "updateShow":
                 gotoPage("/DetailedShowView.jsp", request, response);
                 break;
@@ -175,9 +158,11 @@ public class ShowControllerEG extends HttpServlet {
         String show_title = request.getParameter("show_title");
         String show_description = request.getParameter("show_description");
         String show_image = request.getParameter("show_image");
+        String live = request.getParameter("live");
+        
 //        AdminEG user = (AdminEG) session.getAttribute("users");
 //        System.out.println("user_id: " + user.getUserid());
-        ShowsEG shows = new ShowsEG(show_title, show_description, show_image);
+        ShowsEG shows = new ShowsEG(show_title, show_description, show_image,live);
         shows = shows.saveToDatabase();
         
         session.setAttribute("shows", shows);
@@ -187,9 +172,10 @@ public class ShowControllerEG extends HttpServlet {
         String show_title = request.getParameter("show_title");
         String show_description = request.getParameter("show_description");
         String show_image = request.getParameter("show_image");
+        String live = request.getParameter("live");
         
         System.out.println("show_id: " + shows.getShow_id());
-        ShowsEG s = new ShowsEG(shows.getShow_id(), show_title, show_description, show_image);
+        ShowsEG s = new ShowsEG(shows.getShow_id(), show_title, show_description, show_image, live);
         
         s = s.update();
         session.setAttribute("shows", shows);

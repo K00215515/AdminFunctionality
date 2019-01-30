@@ -36,7 +36,9 @@
         <div class="logIn">
             <form action="ShowControllerEG" method="post" class="register-form" name="show">
                 <input type="submit" name="menu" value="Add Show"/>
-                <input type="submit" name="home" value="List All Shows" />
+<!--                <input type="submit" name="home" value="List All Shows" />-->
+                <input type="submit" name="home" value="Live Shows"/>
+
             </form>
         <table id="m">
                     <tr>             

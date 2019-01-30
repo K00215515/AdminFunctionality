@@ -34,7 +34,7 @@
                         <a href="NavigationControllerEG?menu=home">Home</a>
                         <a href="NavigationControllerEG?menu=gallery">Gallery</a>
                         <a href="NavigationControllerEG?menu=shows">Shows</a>
-                        <a href="NavigationControllerEG?menu=admin">Admin</a>
+<!--                        <a href="NavigationControllerEG?menu=admin">Admin</a>-->
                         <a href="NavigationControllerEG?menu=signUp">SignUp</a>
                         <a href="NavigationControllerEG?menu=logIn">LogIn</a>
 <!--                        <a href="NavigationControllerEG?menu=logout">Logout</a>-->
@@ -52,10 +52,10 @@
                 
                 
                 <div class="w3-content w3-display-container">
-                <img class="mySlides" src="img/Sample1.png" height="800px" width=90% class="center">
-                <img class="mySlides" src="img/Sample2.jpg" height="800px" width=90% class="center">
-                <img class="mySlides" src="img/Sample3.jpg" height="800px" width=90% class="center">
-                <img class="mySlides" src="img/Sample5.jpg" height="800px" width=90% class="center"> 
+                <img class="mySlides" src="images/Sample1.png" height="800px" width=90% class="center">
+                <img class="mySlides" src="images/Sample2.jpg" height="800px" width=90% class="center">
+                <img class="mySlides" src="images/Sample3.jpg" height="800px" width=90% class="center">
+                <img class="mySlides" src="images/Sample5.jpg" height="800px" width=90% class="center"> 
                 <div class="w3-center w3-display-bottommiddle" style="width:100%">
                 <div class="wrapper">
                 
@@ -106,13 +106,13 @@
            
             <div class="titles"><h2>Gallery</h2></div>   
             
-            <img src="img/Sample3.jpg" alt="Sample"/ height="550px" width=60% class="center">    
+            <img src="images/Sample3.jpg" alt="Sample" height="550px" width=60% class="center"/>    
             
             <div class="titles2"><h2>Shows</h2></div>   
             <div class="ImgHoBot">
-            <img src="img/Sample5.jpg" alt="Sample"/ height="450px" width=40%> 
+            <img src="images/Sample5.jpg" alt="Sample" height="450px" width=40%/> 
             
-            <img src="img/Sample5.jpg" alt="Sample"/ height="450px" width=40%> 
+            <img src="images/Sample5.jpg" alt="Sample" height="450px" width=40%/> 
            </div>
                 
                 

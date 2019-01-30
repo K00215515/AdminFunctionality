@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="model.ShowsEG"%>
+<%@page import="model.EntriesEG"%>
 
 <!DOCTYPE html>
 <html>
@@ -46,14 +47,23 @@
                 <label>Show Image</label>
                 <input type="text" name="show_image" id="show_image" value="${shows.show_image}"/>
                 <br>
+                <label>Date Live</label>
+                <input type="text" name="date_live" id="date_live" value="${shows.date_live}"/>
+                <br>
+                <label>Show Live</label>
+                <input type="text" name="live" id="live" value="${shows.live}"/>
+                <br>
                 <input type="submit" name="menu" value="Update" />
-                <input type="submit" name="menu" value="Delete" />
-                <input type="submit" name="menu" value="Show Entries"/>
+<!--                <input type="submit" name="menu" value="Delete" />-->
+<!--                <input type="submit" name="menu" value="Show Entries"/>-->
+                </form>
+                <form action="EntryControllerEG" method="post" class="register-form" name="pieces">
+                <input type="submit" name="menu" value="AddPieces" /><!--
+                <input type="submit" name="menu" value="Order Piece" />-->
                 </form>
                 
                 <!--list of entries for the show depending on its id-->
             </div>
-            
         </div>
         <script
             src="https://code.jquery.com/jquery-1.12.4.js"

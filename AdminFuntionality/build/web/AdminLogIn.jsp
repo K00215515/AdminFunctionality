@@ -32,7 +32,7 @@
                         <a href="NavigationControllerEG?menu=shows">Shows</a>
                         <a href="NavigationControllerEG?menu=admin">Admin</a>
                         <a href="NavigationControllerEG?menu=signUp">SignUp</a>
-                        <a href="NavigationControllerEG?menu=logout">Logout</a>
+<!--                        <a href="NavigationControllerEG?menu=logout">Logout</a>-->
                     </div>
                 </div>
             </header>  

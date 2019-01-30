@@ -16,7 +16,7 @@
         <link href="${pageContext.request.contextPath}/css/layout.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/font.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/css/colour.css" rel="stylesheet" type="text/css">
-        <title>Admin</title>
+        <title>Admin Home</title>
     </head>
     <body>
     <header class="main-header">
@@ -37,15 +37,17 @@
             </div>
         </header> 
         <div class="logIn">
-                <form action="AdminControllerEG" class="manageusers-page">   <%-- //login-form  --%>                                 
-                    <input type="submit" name="menu" value="Manage Users" />
-                    <input type="submit" name="menu" value="logout" />
-                </form>
                 <form action="ShowControllerEG" class="shows-page">
                    <input type="submit" name="menu" value="Manage Shows"/>
+                   <input type="submit" name="menu" value="Add Show"/>
                 </form>
                 <form action="EntryControllerEG" class="entries-page">
                    <input type="submit" name="menu" value="Manage Pieces"/>  
+<!--                   <input type="submit" name="menu" value="All Pieces"/>-->
+                </form>
+                <form action="AdminControllerEG" class="manageusers-page">   <%-- //login-form  --%>                                 
+                    <input type="submit" name="menu" value="Manage Users" />
+                    <input type="submit" name="menu" value="logout" />
                 </form>
         </div>
     </body>

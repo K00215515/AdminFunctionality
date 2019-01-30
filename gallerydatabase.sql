@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2019 at 04:51 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Generation Time: Jan 29, 2019 at 07:25 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -74,17 +74,20 @@ CREATE TABLE `entries` (
   `type` enum('img','vid','','') NOT NULL,
   `entry_description` varchar(30) NOT NULL,
   `price` varchar(20) NOT NULL,
-  `user_id` int(10) DEFAULT NULL
+  `user_id` int(10) DEFAULT NULL,
+  `show_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `entries`
 --
 
-INSERT INTO `entries` (`entry_id`, `date_uploaded`, `entry_title`, `type`, `entry_description`, `price`, `user_id`) VALUES
-(1, '2019-01-23 13:24:43', 'Interactive', 'img', 'Interactive Digital Media', '20', 0),
-(2, '2019-01-23 13:26:15', 'Software', 'img', 'Software Development', '40', 0),
-(3, '2019-01-23 13:53:37', 'Art', 'img', 'Art Course', '100', 0);
+INSERT INTO `entries` (`entry_id`, `date_uploaded`, `entry_title`, `type`, `entry_description`, `price`, `user_id`, `show_id`) VALUES
+(1, '2019-01-23 13:24:43', 'Interactive', 'img', 'Interactive Digital Media', '20', 0, 0),
+(2, '2019-01-23 13:26:15', 'Software', 'img', 'Software Development', '40', 0, 0),
+(3, '2019-01-23 13:53:37', 'Art', 'img', 'Art Course', '100', 0, 0),
+(4, '2019-01-29 17:46:58', 'software', 'img', 'software course', '200', NULL, 2),
+(5, '2019-01-29 18:15:50', 'art work', 'img', 'Course work for art', '500', NULL, 5);
 
 -- --------------------------------------------------------
 
@@ -113,6 +116,7 @@ CREATE TABLE `shows` (
   `show_description` varchar(30) NOT NULL,
   `show_image` varchar(20) NOT NULL,
   `duration` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `live` varchar(10) NOT NULL,
   `user_id` int(10) DEFAULT NULL,
   `course_id` int(4) DEFAULT NULL,
   `entry_id` int(20) DEFAULT NULL
@@ -122,13 +126,13 @@ CREATE TABLE `shows` (
 -- Dumping data for table `shows`
 --
 
-INSERT INTO `shows` (`show_id`, `date_live`, `show_title`, `show_description`, `show_image`, `duration`, `user_id`, `course_id`, `entry_id`) VALUES
-(1, '2018-12-11 11:15:39', 'Interactive Design', 'Interactive Design Assignments', 'interactive.jpg', '2018-12-11 11:15:39', 0, 0, 0),
-(2, '2018-12-11 12:50:32', 'Software Development', 'software', 'art.jpg', '2018-12-11 12:50:32', 0, 0, 0),
-(3, '2018-12-12 09:50:56', 'Broadcasting & Sound', 'broadcasting', 'interactive.jpg', '2018-12-12 09:50:56', 0, 0, 0),
-(5, '2018-12-12 15:23:40', 'Art Show', 'Art show', 'art.jpg', '2018-12-12 15:23:40', 0, 0, 0),
-(12, '2018-12-13 11:34:42', 'Creative Multimedia', 'multimedia ', 'interactive.jpg', '2018-12-13 11:34:42', 0, 0, 0),
-(17, '2018-12-13 13:43:37', 'Sound', 'sound', 'interactive.jpg', '2018-12-13 13:43:37', 0, 0, 0);
+INSERT INTO `shows` (`show_id`, `date_live`, `show_title`, `show_description`, `show_image`, `duration`, `live`, `user_id`, `course_id`, `entry_id`) VALUES
+(1, '2018-12-11 11:15:39', 'Interactive Design', 'Interactive Design Assignments', 'interactive.jpg', '2018-12-11 11:15:39', 'true', 0, 0, 0),
+(2, '2018-12-11 12:50:32', 'Software Development', 'software', 'art.jpg', '2018-12-11 12:50:32', 'true', 0, 0, 0),
+(3, '2018-12-12 09:50:56', 'Broadcasting & Sound', 'broadcasting', 'interactive.jpg', '2018-12-12 09:50:56', 'false', 0, 0, 0),
+(5, '2018-12-12 15:23:40', 'Art Show', 'Art show', 'art.jpg', '2018-12-12 15:23:40', 'true', 0, 0, 0),
+(12, '2018-12-13 11:34:42', 'Creative Multimedia', 'multimedia ', 'interactive.jpg', '2018-12-13 11:34:42', 'false', 0, 0, 0),
+(17, '2018-12-13 13:43:37', 'Sound', 'sound', 'interactive.jpg', '2018-12-13 13:43:37', 'true', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -195,7 +199,8 @@ ALTER TABLE `courses`
 -- Indexes for table `entries`
 --
 ALTER TABLE `entries`
-  ADD PRIMARY KEY (`entry_id`);
+  ADD PRIMARY KEY (`entry_id`),
+  ADD KEY `show_id` (`show_id`);
 
 --
 -- Indexes for table `rating`
@@ -244,7 +249,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `entries`
 --
 ALTER TABLE `entries`
-  MODIFY `entry_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `entry_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `rating`

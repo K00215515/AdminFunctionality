@@ -22,29 +22,33 @@ public class ShowsEG implements Serializable{
     private String show_title;
     private String show_description;
     private String show_image;
+    private Date date_live;
+    private String live;
     private int userid;
     
     public ShowsEG(){
     }
     
-    public ShowsEG(String show_title, String show_description, String show_image){
+    public ShowsEG(String show_title, String show_description, String show_image, String live){
         this.show_title = show_title;
         this.show_description = show_description;
         this.show_image = show_image;
+        this.live = live;
     }
     
-    public ShowsEG(int show_id, String show_title, String show_description, String show_image){
+    public ShowsEG(int show_id, String show_title, String show_description, String show_image, String live){
         this.show_id = show_id;
         this.show_title = show_title;
         this.show_description = show_description;
         this.show_image = show_image;
+        this.live = live;
     }
 
-    public ShowsEG(String show_title, String show_description, String show_image, int userid) {
+    public ShowsEG(String show_title, String show_description, String show_image, String live, int userid) {
         this.show_id = show_id;
         this.show_title = show_title;
         this.show_description = show_description;
-        this.show_image = show_image;
+        this.live = live;
         this.userid = userid;
     }
 
@@ -74,7 +78,15 @@ public class ShowsEG implements Serializable{
     public String getShow_image() {
         return show_image;   
     }
-
+    
+    public Date getDate_live() {
+        return date_live;
+    }
+    
+    public String getLive() {
+        return live;
+    }
+    
     public void setShow_image(String show_image) {
         this.show_image = show_image;
     }
@@ -85,11 +97,19 @@ public class ShowsEG implements Serializable{
     public void setUserid(int userid) {
         this.userid = userid;
     }
-
+    
+    public void setDate_live(Date date_live) {
+        this.date_live = date_live;
+    }
+    
+    public void setLive(String live) {
+        this.live = live;
+    }
+    
     public ShowsEG saveToDatabase() {
         Connection connection = DatabaseUtilityClass.getConnection();
          
-        String sql = "INSERT INTO shows(show_title,show_description,show_image) VALUES (?,?,?);";
+        String sql = "INSERT INTO shows(show_title,show_description,show_image,live) VALUES (?,?,?,?);";
         String query = "SELECT LAST_INSERT_ID()";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -97,6 +117,7 @@ public class ShowsEG implements Serializable{
             ps.setString(1, this.getShow_title());
             ps.setString(2, this.getShow_description());
             ps.setString(3, this.getShow_image());
+            ps.setString(4, this.getLive());
 //            ps.setInt(4, this.getUserid());
             
             ps.executeUpdate();
@@ -131,6 +152,8 @@ public class ShowsEG implements Serializable{
                 n.setShow_title(resultSet.getString("show_title"));
                 n.setShow_description(resultSet.getString("show_description"));
                 n.setShow_image(resultSet.getString("show_image"));
+                n.setDate_live(resultSet.getDate("date_live"));
+                n.setLive(resultSet.getString("live"));
 //                n.setUserId(resultSet.getInt("UserId"));
                 return n;
             }
@@ -148,7 +171,7 @@ public class ShowsEG implements Serializable{
         Connection connection = DatabaseUtilityClass.getConnection();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
-        String query = "Select * from Shows";
+        String query = "Select * from Shows WHERE live = 'true'"; // WHERE date_live BETWEEN '2018-12-11' AND '2019-01-27'
         try {
             ps = connection.prepareStatement(query);
             resultSet = ps.executeQuery();
@@ -158,6 +181,7 @@ public class ShowsEG implements Serializable{
                 n.setShow_title(resultSet.getString("show_title"));
                 n.setShow_description(resultSet.getString("show_description"));
                 n.setShow_image(resultSet.getString("show_image"));
+                n.setLive(resultSet.getString("live"));
 //                n.setUserId(resultSet.getInt("userId"));
                 allshows.add(n);
             }
@@ -171,13 +195,14 @@ public class ShowsEG implements Serializable{
 
     public ShowsEG update() {
         Connection connection = DatabaseUtilityClass.getConnection();
-        String sql = "UPDATE Shows SET show_title = ?, show_description = ?, show_image = ? WHERE show_id = ?;";   
+        String sql = "UPDATE Shows SET show_title = ?, show_description = ?, show_image = ?, live = ? WHERE show_id = ?;";   
         try{
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, this.getShow_title());
             ps.setString(2, this.getShow_description());
             ps.setString(3, this.getShow_image());
-            ps.setInt(4, this.getShow_id());
+            ps.setString(4, this.getLive());
+            ps.setInt(5, this.getShow_id());
             
             ps.executeUpdate();
             System.out.println(ps.toString());

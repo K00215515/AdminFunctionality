@@ -37,10 +37,6 @@
             
             <div class="logIn">
                 <form action="ShowControllerEG" method="get" class="register-form" name="shows">
-                <label>Show Title</label>
-                <br>
-                <label>Entries</label> 
-                <br>
                 <label>Show Name</label>
                 <input type="text" name="show_title" id="show_title" value="${shows.show_title}"/>
                 <br>
@@ -50,7 +46,27 @@
                 <label>Show Image</label>
                 <input type="text" name="show_image" id="show_image" value="${shows.show_image}"/>
                 <br>
+                </form>
+                <form action="EntryControllerEG" method="post" class="register-form" name="pieces">
+                <input type="submit" name="home2" value="AddPieces" />
+                </form>  
+                
+                <label>Entries</label> 
+                <br>
+                <table id="m">
+                    <tr>
+                    <td>Pieces Title</td>
+                        <c:forEach var="pieces" items="${allpieces}">                  
+                            <tr>   
+                                <td><a href="EntryControllerEG?menu=getPieceView&entry_id=${pieces.entry_id}">${pieces.entry_title}</a></td>
+                            </tr>
+                        </c:forEach>
 
+                    </tr>
+                
+                </table>
+                
+                
                 </form>
             </div>
             

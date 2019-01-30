@@ -42,7 +42,11 @@
                 <br>
                 <label>Show Image</label>
                 <input type="text" name="show_image" id="show_image" value="${shows.show_image}"/><br>
-                <input type="submit" name="home" value="List Shows" />
+                <br>
+                <label>Show Live</label>
+                <input type="text" name="live" id="live" value="${shows.live}"/>
+                
+                <input type="submit" name="home" value="Live Shows" />
                 <input type="submit" name="menu" value="SaveShow" />
             </form>
         </div>
